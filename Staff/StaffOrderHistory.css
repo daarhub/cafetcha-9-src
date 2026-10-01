@@ -1,0 +1,73 @@
+/* Completed-order details shared by the staff history page. */
+.staff-history-order {
+  background: #fffefa;
+}
+
+.staff-history-order-head > div {
+  gap: 10px;
+}
+
+.staff-history-order-head strong {
+  color: #573016;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.staff-history-order-head > div > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #b36538;
+  font-size: 10.5px;
+  font-weight: 800;
+}
+
+.staff-history-order-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 14px 0 11px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #f0e4d2;
+}
+
+.staff-history-order-main p {
+  flex-wrap: wrap;
+}
+
+.staff-history-order-main p span {
+  color: #d7b996;
+}
+
+.staff-history-total {
+  flex-shrink: 0;
+  color: #573016;
+  font-size: 16px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.staff-history-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.staff-history-items li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #573016;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.staff-history-items li > small {
+  padding-left: 2px;
+}

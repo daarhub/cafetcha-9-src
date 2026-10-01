@@ -1,0 +1,132 @@
+@import "./AdminShared.css";
+
+.admin-messages-filters {
+  flex-wrap: wrap;
+}
+
+.admin-messages-filters label {
+  flex: 1 1 280px;
+}
+
+.admin-messages-filters select {
+  min-width: 175px;
+}
+
+.admin-messages-list {
+  display: grid;
+  gap: 12px;
+}
+
+.admin-message-card {
+  position: relative;
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  border: 1px solid #eadcc8;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.admin-message-card.unread {
+  background: #fffaf2;
+}
+
+.admin-message-card-head,
+.admin-message-card-meta,
+.admin-message-card-head > div,
+.admin-message-actions {
+  display: flex;
+  align-items: center;
+}
+
+.admin-message-card-head {
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.admin-message-card-head > div {
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-message-card-head strong {
+  color: #573016;
+  font-size: 16px;
+}
+
+.admin-message-card-head span,
+.admin-message-card-head time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #8a6548;
+  font-size: 11px;
+}
+
+.admin-message-card-meta {
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-message-status {
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.admin-message-status.new { color: #9a4a13; background: #fff0d4; }
+.admin-message-status.read { color: #2e7d4f; background: #e7f5ed; }
+
+.admin-message-subject {
+  width: fit-content;
+  padding: 4px 9px;
+  border-radius: 6px;
+  color: #285451;
+  background: #eaf3ef;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.admin-message-text {
+  margin: 0;
+  color: #6f5139;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.admin-message-actions {
+  gap: 8px;
+}
+
+.admin-message-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid #d7b996;
+  border-radius: 8px;
+  color: #285451;
+  background: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-message-actions button.danger {
+  color: #b3261e;
+}
+
+@media (max-width: 700px) {
+  .admin-message-card-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .admin-message-card-meta {
+    align-items: flex-start;
+  }
+}

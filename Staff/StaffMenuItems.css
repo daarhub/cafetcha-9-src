@@ -1,0 +1,247 @@
+/* Staff menu item availability controls. The page reuses the shared staff
+   order layout and only adds the management-specific rows and filters. */
+.staff-menu-items-page .staff-page-link {
+  white-space: nowrap;
+}
+
+.staff-menu-summary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.staff-menu-items-card {
+  padding: 20px;
+}
+
+.staff-menu-items-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.staff-menu-items-toolbar h2 {
+  margin: 0;
+  color: #573016;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.staff-menu-items-toolbar p {
+  margin: 5px 0 0;
+  color: #9b8168;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.staff-menu-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.staff-menu-category-select {
+  min-width: 155px;
+  padding: 10px 12px;
+  border: 1.5px solid #e3d3b8;
+  border-radius: 10px;
+  color: #573016;
+  background: #fffdf9;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.staff-menu-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.staff-menu-item-row {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border: 1px solid #efdfc9;
+  border-radius: 13px;
+  background: #fff;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.staff-menu-item-row:hover {
+  border-color: #d7b996;
+}
+
+.staff-menu-item-row.is-unavailable {
+  background: #fbf7f1;
+}
+
+.staff-menu-item-image {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f6efe3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.staff-menu-item-image img {
+  width: 230%;
+  height: 230%;
+  object-fit: contain;
+}
+
+.staff-menu-item-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.staff-menu-item-copy strong {
+  overflow: hidden;
+  color: #573016;
+  font-size: 14px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.staff-menu-item-copy span {
+  color: #b36538;
+  font-size: 10.5px;
+  font-weight: 800;
+}
+
+.staff-menu-item-copy small {
+  overflow: hidden;
+  color: #9b8168;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.staff-menu-item-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.staff-menu-availability {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 112px;
+  padding: 8px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.staff-menu-availability.available {
+  color: #2e8b57;
+  background: #e7f5ed;
+}
+
+.staff-menu-availability.unavailable {
+  color: #b3261e;
+  background: #fff0ef;
+}
+
+.staff-menu-status-select {
+  display: flex;
+  min-width: 170px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.staff-menu-status-select > span {
+  color: #9b8168;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.staff-menu-status-select select {
+  width: 155px;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #d7b996;
+  border-radius: 8px;
+  color: #573016;
+  background: #fffdf9;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+@media (max-width: 1100px) {
+  .staff-menu-items-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .staff-menu-filters {
+    width: 100%;
+  }
+
+  .staff-menu-filters .staff-search {
+    flex: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .staff-menu-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-menu-filters {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .staff-menu-category-select,
+  .staff-menu-filters .staff-search {
+    width: 100%;
+  }
+
+  .staff-menu-item-row {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    padding: 12px;
+  }
+
+  .staff-menu-item-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .staff-menu-item-image img {
+    width: 230%;
+    height: 230%;
+    object-fit: contain;
+  }
+
+  .staff-menu-item-controls {
+    grid-column: 2;
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .staff-menu-availability,
+  .staff-menu-status-select,
+  .staff-menu-status-select select {
+    width: 100%;
+  }
+}

@@ -1,0 +1,37 @@
+@import "./AdminShared.css";
+
+.admin-staff-management-page .admin-people-list article {
+  grid-template-columns: 160px minmax(0, 1fr) auto;
+  min-height: 210px;
+  padding: 18px;
+}
+
+.admin-staff-management-page .admin-staff-photo {
+  width: 160px;
+  height: 160px;
+}
+
+.admin-staff-management-page .admin-staff-card-controls {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.admin-staff-management-page .admin-status-pill {
+  font-size: 14px;
+  padding: 10px 16px;
+}
+
+@media (max-width: 700px) {
+  .admin-staff-management-page .admin-people-list article {
+    grid-template-columns: 90px minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .admin-staff-management-page .admin-staff-card-controls {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+}

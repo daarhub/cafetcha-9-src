@@ -1,0 +1,586 @@
+/* =========================
+   ADMIN DASHBOARD (/admin)
+   Warm brown palette matching the admin login — a cream workspace with
+   dark-brown accents and tan borders. The fixed sidebar lives in
+   AdminSidebar.css; this page offsets itself by the same width.
+========================= */
+
+.admin-dashboard {
+  margin-left: 250px;
+
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  padding: 26px 32px 44px;
+
+  background: #f7f0e6;
+}
+
+/* =========================
+   WELCOME HEADER
+========================= */
+
+.admin-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.admin-welcome h1 {
+  margin: 0;
+
+  color: #573016;
+
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.admin-welcome p {
+  margin: 4px 0 0;
+
+  color: #9b8168;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.admin-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border: 1.5px solid #e3d3b8;
+  border-radius: 12px;
+
+  background: #fffdf9;
+
+  color: #573016;
+
+  font-size: 12.5px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  box-shadow: 0 6px 14px rgba(63, 34, 16, 0.06);
+}
+
+.admin-date-pill svg {
+  color: #b36538;
+  flex-shrink: 0;
+}
+
+/* =========================
+   LAYOUT GRID
+   Wide working column on the left, narrow preview column on the right
+   (Top Selling Items + Manage Staff), like the design reference.
+========================= */
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 20px;
+
+  align-items: start;
+}
+
+.admin-main-col,
+.admin-side-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  min-width: 0;
+}
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 18px;
+}
+
+.admin-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px;
+
+  border: 1.5px solid #e3d3b8;
+  border-radius: 16px;
+
+  background: #fffdf9;
+
+  box-shadow: 0 10px 26px rgba(63, 34, 16, 0.06);
+}
+
+.admin-stat-icon {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background: #f6ead9;
+  color: #b36538;
+}
+
+.admin-stat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  min-width: 0;
+}
+
+.admin-stat-label {
+  color: #9b8168;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin-stat-value {
+  color: #573016;
+
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.15;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-stat-sub {
+  color: #bda58e;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.admin-stat-delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #2e7d4f;
+
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+.admin-stat-delta em {
+  font-style: normal;
+  font-weight: 600;
+
+  color: #9b8168;
+}
+
+/* The Total Sales card wears the dark brown of the brand panel */
+.admin-stat-dark {
+  border-color: transparent;
+
+  background: linear-gradient(160deg, #6b3d1e, #3f2210);
+
+  box-shadow: 0 14px 30px rgba(63, 34, 16, 0.28);
+}
+
+.admin-stat-dark .admin-stat-icon {
+  background: rgba(243, 230, 209, 0.16);
+  color: #f3e6d1;
+}
+
+.admin-stat-dark .admin-stat-label {
+  color: rgba(243, 230, 209, 0.75);
+}
+
+.admin-stat-dark .admin-stat-value {
+  color: #ffffff;
+}
+
+.admin-stat-dark .admin-stat-delta {
+  color: #7fd6a4;
+}
+
+.admin-stat-dark .admin-stat-delta em {
+  color: rgba(243, 230, 209, 0.65);
+}
+
+/* =========================
+   CARDS (SHARED)
+========================= */
+
+.admin-card {
+  padding: 18px 20px;
+
+  border: 1.5px solid #e3d3b8;
+  border-radius: 16px;
+
+  background: #fffdf9;
+
+  box-shadow: 0 10px 26px rgba(63, 34, 16, 0.06);
+}
+
+.admin-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 14px;
+}
+
+.admin-card-head h2 {
+  margin: 0;
+
+  color: #573016;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.admin-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #b36538;
+
+  font-size: 11.5px;
+  font-weight: 800;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.15s ease;
+}
+
+.admin-view-all:hover {
+  color: #573016;
+  text-decoration: underline;
+}
+
+/* =========================
+   RECENTLY ADDED PRODUCTS
+========================= */
+
+.admin-recent {
+  flex: 1;
+}
+
+.admin-recent-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-recent-tile {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #efdfc9;
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+.admin-recent-tile img {
+  width: 54px;
+  height: 54px;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  background: #f6ead9;
+  object-fit: cover;
+}
+
+.admin-recent-tile h3 {
+  margin: 0;
+
+  color: #573016;
+
+  font-size: 13.5px;
+  font-weight: 700;
+}
+
+.admin-recent-tile p {
+  margin: 3px 0 0;
+
+  color: #9b8168;
+
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+/* =========================
+   TOP SELLING ITEMS
+========================= */
+
+.admin-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 0;
+}
+
+.admin-top-row + .admin-top-row {
+  border-top: 1px solid #f0e4d2;
+}
+
+.admin-rank {
+  display: grid;
+  place-items: center;
+
+  width: 26px;
+  height: 26px;
+
+  flex-shrink: 0;
+
+  border: 1.5px solid #d7b996;
+  border-radius: 50%;
+
+  background: #ffffff;
+  color: #b36538;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Rank 1 gets the filled brown badge */
+.admin-rank.first {
+  border-color: transparent;
+
+  background: #573016;
+  color: #ffffff;
+}
+
+.admin-top-row img {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #f6ead9;
+  object-fit: cover;
+}
+
+/* Shown when a sold product is no longer in the managed catalog. */
+.admin-top-fallback {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #f6ead9;
+  color: #7a5a38;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+/* Shown when a sold product is no longer in the managed catalog. */
+.admin-top-fallback {
+  width: 46px;
+  height: 46px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #f6ead9;
+  color: #7a5a38;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.admin-top-info {
+  min-width: 0;
+}
+
+.admin-top-info h3 {
+  margin: 0;
+
+  color: #573016;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-top-info p {
+  margin: 2px 0 0;
+
+  color: #9b8168;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================
+   MANAGE STAFF
+========================= */
+
+/* Empty-state message for the Recent Products / Top Selling cards */
+.admin-card-empty {
+  margin: 0;
+  padding: 10px 0;
+
+  color: #8a7461;
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+/* All staff accounts are listed; the list scrolls past three rows. */
+.admin-staff-list {
+  display: flex;
+  flex-direction: column;
+
+  max-height: 196px;
+
+  overflow-y: auto;
+
+  padding-right: 4px;
+}
+
+.admin-staff-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.admin-staff-list::-webkit-scrollbar-thumb {
+  background: #e3d3b8;
+  border-radius: 999px;
+}
+
+.admin-staff-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 9px 0;
+}
+
+.admin-staff-row + .admin-staff-row {
+  border-top: 1px solid #f0e4d2;
+}
+
+.admin-staff-row img {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #f6ead9;
+  object-fit: cover;
+}
+
+.admin-staff-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.admin-staff-info p {
+  margin: 0;
+
+  color: #bda58e;
+
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.admin-staff-info h3 {
+  margin: 2px 0 0;
+
+  color: #573016;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-staff-badge {
+  flex-shrink: 0;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  background: rgba(46, 125, 79, 0.12);
+  color: #2e7d4f;
+
+  font-size: 10.5px;
+  font-weight: 800;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* The right preview column drops below the main column */
+@media (max-width: 1150px) {
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sidebar collapses to an icon rail (see AdminSidebar.css) — follow it */
+@media (max-width: 960px) {
+  .admin-dashboard {
+    margin-left: 78px;
+
+    padding: 22px 18px 36px;
+  }
+
+  .admin-welcome {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .admin-recent-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-welcome h1 {
+    font-size: 22px;
+  }
+}

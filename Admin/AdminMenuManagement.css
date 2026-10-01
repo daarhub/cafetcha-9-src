@@ -1,0 +1,251 @@
+@import "./AdminShared.css";
+
+.admin-menu-management-page .admin-menu-row {
+  grid-template-columns: 170px minmax(0, 1fr) 105px 132px auto;
+}
+
+.admin-menu-management-page .admin-menu-item-image img {
+  object-position: center;
+  transform: scale(2.3);
+}
+
+.admin-menu-management-page .admin-menu-price {
+  text-align: right;
+}
+
+.admin-menu-management-page .admin-menu-actions {
+  justify-content: flex-end;
+}
+.admin-menu-form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: min(760px, 100%);
+  /* Sits closer to the old modal height and stays viewport-safe: the form
+     scrolls internally instead of growing the panel. */
+  height: min(620px, calc(100vh - 40px));
+  height: min(620px, calc(100dvh - 40px));
+  max-height: calc(100vh - 40px);
+  max-height: calc(100dvh - 40px);
+  overflow: hidden;
+  padding: 0;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #c8a77d #f7f0e6;
+}
+.admin-menu-form::-webkit-scrollbar {
+  width: 10px;
+}
+.admin-menu-form > .admin-form-grid,
+.admin-menu-form > .admin-form-error,
+.admin-menu-form > .admin-form-actions {
+  width: auto;
+  min-width: 0;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+}
+.admin-menu-form > .admin-form-grid,
+.admin-menu-form > .admin-form-error,
+.admin-menu-form > .admin-form-actions {
+  overflow: visible;
+}
+.admin-menu-form > .admin-form-grid,
+.admin-menu-form > .admin-form-error,
+.admin-menu-form > .admin-form-actions {
+  flex: 0 0 auto;
+}
+.admin-menu-form > .admin-menu-form-scroll {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 18px 26px 0;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #c8a77d #f7f0e6;
+}
+.admin-menu-form > .admin-menu-form-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.admin-menu-form > .admin-menu-form-scroll::-webkit-scrollbar-track {
+  background: #f7f0e6;
+  border-radius: 999px;
+}
+.admin-menu-form > .admin-menu-form-scroll::-webkit-scrollbar-thumb {
+  background: #c8a77d;
+  border: 2px solid #f7f0e6;
+  border-radius: 999px;
+}
+.admin-menu-form-scroll > .admin-form-error,
+.admin-menu-form-scroll > .admin-form-actions {
+  width: 100%;
+  box-sizing: border-box;
+}
+.admin-menu-form-scroll > .admin-form-actions,
+.admin-menu-form-scroll .admin-form-actions {
+  position: static !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  z-index: auto;
+  margin: 22px 0 0;
+  padding: 18px 0 6px;
+  background: transparent;
+}
+
+.admin-menu-form-scroll > .admin-form-actions,
+.admin-menu-form-scroll .admin-form-actions {
+  flex: 0 0 auto;
+}
+
+.admin-menu-form > .admin-menu-form-head,
+.admin-menu-form > .admin-menu-form-head .admin-modal-close {
+  position: relative;
+}
+
+.admin-menu-form > .admin-menu-form-head .admin-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 10;
+  display: grid;
+  flex-shrink: 0;
+}
+
+.admin-menu-form-scroll {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.admin-menu-form-scroll .admin-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.admin-menu-form-scroll .admin-form-grid label {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.admin-menu-form-scroll .admin-form-grid select,
+.admin-menu-form-scroll .admin-form-grid input,
+.admin-menu-form-scroll .admin-form-grid textarea {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.admin-menu-form-scroll .admin-menu-option-builder,
+.admin-menu-form-scroll .admin-menu-product-selectors {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.admin-menu-product-selectors select {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+.admin-menu-form > .admin-menu-form-head {
+  position: relative !important;
+  top: auto !important;
+  z-index: 2;
+  display: block;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 18px 52px 14px;
+  border-bottom: 1px solid #eadcc8;
+  text-align: center;
+}
+.admin-menu-form > .admin-menu-form-head h2 {
+  margin: 0;
+  padding: 0;
+}
+.admin-menu-form > .admin-form-actions {
+  position: static !important;
+  top: auto !important;
+  z-index: auto;
+  bottom: auto;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 16px 26px 22px;
+  border-top: 1px solid #eadcc8;
+  background: #fffdf9;
+}
+
+.admin-menu-form > .admin-menu-form-head .admin-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  flex-shrink: 0;
+}
+
+.admin-menu-option-builder,
+.admin-menu-product-selectors {
+  width: 100%;
+  min-width: 0;
+}
+.admin-menu-product-selectors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.admin-menu-product-selectors label {
+  min-width: 0;
+}
+.admin-menu-product-selectors select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.admin-menu-management-page .admin-menu-group + .admin-menu-group {
+  border-top-color: #cfae7d;
+}
+
+@media (max-width: 1100px) {
+  .admin-menu-management-page .admin-menu-row {
+    grid-template-columns: 125px minmax(0, 1fr) 90px auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-menu-form {
+    padding: 0;
+  }
+
+  .admin-menu-form > .admin-menu-form-head {
+    margin: 0;
+    padding: 16px 46px 12px;
+  }
+
+  .admin-menu-form > .admin-menu-form-head h2 {
+    padding: 0;
+  }
+  .admin-menu-product-selectors {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-menu-form > .admin-menu-form-scroll {
+    padding: 16px 20px 0;
+  }
+
+  .admin-menu-form > .admin-form-actions {
+    position: static;
+    bottom: auto;
+    margin: 0;
+    padding: 16px 20px 20px;
+    background: #fffdf9;
+  }
+}

@@ -1,0 +1,479 @@
+/* =========================
+   STAFF DASHBOARD (/staff)
+   Warm brown palette matching the staff login and the admin dashboard — a
+   cream workspace with dark-brown accents and tan borders. The fixed
+   sidebar lives in StaffSidebar.css; this page offsets itself by the same
+   width.
+========================= */
+
+.staff-dashboard {
+  margin-left: 250px;
+
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  padding: 26px 32px 44px;
+
+  background: #f7f0e6;
+}
+
+/* =========================
+   WELCOME HEADER
+========================= */
+
+.staff-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.staff-welcome h1 {
+  margin: 0;
+
+  color: #573016;
+
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.staff-welcome p {
+  margin: 4px 0 0;
+
+  color: #9b8168;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.staff-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 9px 14px;
+
+  border: 1.5px solid #e3d3b8;
+  border-radius: 12px;
+
+  background: #fffdf9;
+
+  color: #573016;
+
+  font-size: 12.5px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  box-shadow: 0 6px 14px rgba(63, 34, 16, 0.06);
+}
+
+.staff-date-pill svg {
+  color: #b36538;
+  flex-shrink: 0;
+}
+
+/* =========================
+   LAYOUT GRID
+   Single working column: the statistics row on top, the live order queue
+   underneath.
+========================= */
+
+.staff-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+
+  align-items: start;
+}
+
+.staff-main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  min-width: 0;
+}
+
+/* =========================
+   STAT CARDS
+   Fixed 4 cards per row (two rows of four) on desktop.
+========================= */
+
+.staff-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.staff-stat {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 18px;
+
+  border: 1.5px solid #e3d3b8;
+  border-radius: 16px;
+
+  background: #fffdf9;
+
+  box-shadow: 0 10px 26px rgba(63, 34, 16, 0.06);
+}
+
+.staff-stat-icon {
+  display: grid;
+  place-items: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  background: #f6ead9;
+  color: #b36538;
+}
+
+.staff-stat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  min-width: 0;
+}
+
+.staff-stat-label {
+  color: #9b8168;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.staff-stat-value {
+  color: #573016;
+
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.15;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.staff-stat-sub {
+  color: #bda58e;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* The Total Orders card wears the dark brown of the brand panel */
+.staff-stat-dark {
+  border-color: transparent;
+
+  background: linear-gradient(160deg, #6b3d1e, #3f2210);
+
+  box-shadow: 0 14px 30px rgba(63, 34, 16, 0.28);
+}
+
+.staff-stat-dark .staff-stat-icon {
+  background: rgba(243, 230, 209, 0.16);
+  color: #f3e6d1;
+}
+
+.staff-stat-dark .staff-stat-label {
+  color: rgba(243, 230, 209, 0.75);
+}
+
+.staff-stat-dark .staff-stat-value {
+  color: #ffffff;
+}
+
+.staff-stat-dark .staff-stat-sub {
+  color: rgba(243, 230, 209, 0.65);
+}
+
+/* =========================
+   CARDS (SHARED)
+========================= */
+
+.staff-card {
+  padding: 18px 20px;
+
+  border: 1.5px solid #e3d3b8;
+  border-radius: 16px;
+
+  background: #fffdf9;
+
+  box-shadow: 0 10px 26px rgba(63, 34, 16, 0.06);
+}
+
+.staff-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 14px;
+}
+
+.staff-card-head h2 {
+  margin: 0;
+
+  color: #573016;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.staff-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #b36538;
+
+  font-size: 11.5px;
+  font-weight: 800;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: color 0.15s ease;
+}
+
+.staff-view-all:hover {
+  color: #573016;
+  text-decoration: underline;
+}
+
+/* The queue card stretches to fill the left column, like the admin
+   dashboard's recently-added card */
+.staff-queue-card {
+  flex: 1;
+}
+
+/* =========================
+   ORDER QUEUES
+   The live order queue rows — code pill, item line, total and a status pill.
+========================= */
+
+.staff-queue {
+  display: flex;
+  flex-direction: column;
+}
+
+.staff-queue-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 12px 0;
+}
+
+.staff-queue-row + .staff-queue-row {
+  border-top: 1px solid #f0e4d2;
+}
+
+.staff-queue-code {
+  padding: 4px 8px;
+
+  border: 1px solid #e3d3b8;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #9b8168;
+
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+
+  white-space: nowrap;
+}
+
+.staff-queue-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.staff-queue-info h3 {
+  margin: 0;
+
+  color: #573016;
+
+  font-size: 14.5px;
+  font-weight: 700;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.staff-queue-info p {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  margin: 3px 0 0;
+
+  color: #9b8168;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.staff-queue-total {
+  flex-shrink: 0;
+
+  color: #573016;
+
+  font-size: 13.5px;
+  font-weight: 800;
+}
+
+.staff-queue-status {
+  flex-shrink: 0;
+
+  padding: 5px 11px;
+
+  border-radius: 999px;
+
+  font-size: 11.5px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+/* Empty state — no orders in the queue */
+.staff-empty {
+  margin: 0;
+
+  padding: 14px 0 6px;
+
+  color: #bda58e;
+
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* Sidebar collapses to an icon rail (see StaffSidebar.css) — follow it */
+@media (max-width: 960px) {
+  .staff-dashboard {
+    margin-left: 78px;
+
+    padding: 22px 18px 36px;
+  }
+
+  .staff-welcome {
+    flex-wrap: wrap;
+  }
+
+  /* Four columns no longer fit — drop to two rows of two */
+  .staff-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .staff-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-welcome h1 {
+    font-size: 22px;
+  }
+}
+
+.staff-queue-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.staff-queue-mode.delivery {
+  color: #2563eb;
+  background: #2563eb1a;
+}
+
+.staff-queue-mode.pickup {
+  color: #b36538;
+  background: #b365381a;
+}
+
+/* The home queue follows the same first-come, first-served visual scale as
+   the dedicated Orders page. */
+.staff-queue-row {
+  gap: 18px;
+  min-height: 76px;
+  padding: 16px 0;
+}
+
+
+/* The home queue follows the same first-come, first-served visual scale as
+   the dedicated Orders page. */
+.staff-queue-row {
+  gap: 18px;
+  min-height: 76px;
+  padding: 16px 0;
+}
+
+.staff-queue-code {
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
+.staff-queue-info h3 {
+  font-size: 16px;
+}
+
+.staff-queue-info p {
+  font-size: 13px;
+}
+
+.staff-queue-total {
+  font-size: 15px;
+}
+
+.staff-queue-status {
+  padding: 7px 13px;
+  font-size: 12.5px;
+}
+
+@media (max-width: 620px) {
+  .staff-queue-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
+  .staff-queue-info {
+    flex-basis: calc(100% - 90px);
+  }
+
+  .staff-queue-total {
+    margin-left: auto;
+  }
+}

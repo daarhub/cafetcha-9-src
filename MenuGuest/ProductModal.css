@@ -1,0 +1,434 @@
+.product-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 30, 29, 0.68);
+  animation: product-modal-fade 0.18s ease;
+}
+
+@keyframes product-modal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.product-modal {
+  position: relative;
+  width: min(780px, 100%);
+  max-height: calc(100vh - 40px);
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  /* minmax(0, 1fr) caps the row at the modal's max height, so tall
+     content (like the Frappe Duo Deal's three sugar-level groups)
+     scrolls inside the info pane instead of pushing the action buttons
+     out of view. */
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 14px;
+  color: #234947;
+  background: #fffaf4;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: product-modal-pop 0.2s ease;
+}
+
+@keyframes product-modal-pop {
+  from {
+    opacity: 0.6;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Long-option promos (the Frappe Duo Deal) keep the same fixed height as
+   the 3D frappe customizer modal (.frappe-modal: min(660px, 92vh)) — the
+   info pane scrolls inside instead of the modal stretching toward full
+   screen height. */
+.product-modal.product-modal-compact {
+  height: min(660px, 92vh);
+}
+
+.product-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #315654;
+  background: rgba(255, 250, 244, 0.92);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.product-modal-close:hover {
+  background: #fff;
+}
+
+.product-modal-media {
+  display: grid;
+  place-items: center;
+  padding: 30px 22px;
+  background: linear-gradient(160deg, #f6e8d4, #ecdcc2);
+}
+
+.product-modal-media img {
+  width: 100%;
+  max-width: 290px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 18px rgba(0, 0, 0, 0.18));
+  transform: scale(3.1);
+  /* The scaled-up artwork keeps its big look, but its oversized invisible
+     area must never intercept clicks — the modal buttons stay clickable. */
+  pointer-events: none;
+}
+
+.product-modal-info {
+  /* min-height: 0 lets this grid item shrink to the row height so the
+     overflow scroll below engages on tall content. */
+  min-height: 0;
+  padding: 30px 28px 26px;
+  overflow-y: auto;
+}
+
+.product-modal-info h2 {
+  margin: 0;
+  padding-right: 30px;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.product-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin: 9px 0 0;
+  font-size: 12.5px;
+}
+
+.product-modal-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #b36538;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.product-modal-rating:hover {
+  text-decoration: underline;
+}
+
+.product-modal-rating-count {
+  color: #697b79;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.product-modal-sold {
+  color: #697b79;
+  font-weight: 600;
+}
+
+.product-modal-description {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #d7b996;
+}
+
+.product-modal-description h3 {
+  margin: 0 0 6px;
+  color: #285451;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.product-modal-description p {
+  margin: 0;
+  color: #54706c;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.product-modal-options {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed #d7b996;
+}
+
+.product-modal-option-group h3 {
+  margin: 0 0 8px;
+  color: #285451;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.product-modal-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.product-modal-choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 11px;
+  border: 1.5px solid #d7b996;
+  border-radius: 999px;
+  color: #365755;
+  background: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.product-modal-choice:hover {
+  border-color: #285451;
+}
+
+.product-modal-choice.selected {
+  border-color: #285451;
+  color: #fff;
+  background: #285451;
+}
+
+.product-modal-choice span {
+  color: #b36538;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.product-modal-choice.selected span {
+  color: #f4d39b;
+}
+
+.product-modal-order {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.product-modal-price {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: #285451;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.product-modal-price .product-modal-each {
+  color: #6a7f7b;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Promo extras: the "Save ₱xx!" pill and the crossed-out original price
+   share one row with the big price and line up vertically with it. */
+.product-modal-price-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-modal-save {
+  padding: 3px 9px;
+  border-radius: 12px;
+  color: #285451;
+  background: #f4d39b;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.product-modal-original {
+  color: #95866f;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.product-modal-quantity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px;
+  border: 1px solid #d7b996;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.product-modal-quantity button {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  color: #573016;
+  background: #f3e6d1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.product-modal-quantity button:hover:not(:disabled) {
+  background: #ecd9ba;
+}
+
+.product-modal-quantity button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.product-modal-quantity span {
+  min-width: 30px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.product-modal-actions {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.product-modal-cart,
+.product-modal-review {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.product-modal-cart {
+  border: 0;
+  color: #fff;
+  background: #285451;
+}
+
+.product-modal-cart:hover {
+  background: #183b39;
+}
+
+.product-modal-review {
+  border: 1.5px solid #285451;
+  color: #285451;
+  background: transparent;
+}
+
+.product-modal-review:hover {
+  background: rgba(40, 84, 81, 0.09);
+}
+
+.product-modal-note {
+  margin: 12px 0 0;
+  color: #95866f;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Responsive: mobile */
+@media (max-width: 640px) {
+  .product-modal {
+    grid-template-columns: 1fr;
+    /* Stacked layout: media and info each size to their content and the
+       whole modal scrolls (the desktop row cap no longer applies). */
+    grid-template-rows: auto auto;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
+
+  /* The fixed compact height only applies to the desktop two-column
+     layout; stacked phones scroll the whole modal instead. */
+  .product-modal.product-modal-compact {
+    height: auto;
+  }
+
+  .product-modal-media {
+    padding: 22px;
+  }
+
+  .product-modal-media img {
+    max-width: 210px;
+    max-height: 190px;
+  }
+
+  .product-modal-info {
+    padding: 22px 20px 20px;
+  }
+
+  .product-modal-info h2 {
+    font-size: 21px;
+  }
+
+  .product-modal-order {
+    flex-wrap: wrap;
+  }
+}
+
+/* Redeem Free Coffee — unlocked by an activated loyalty card, shown above
+   the price/quantity row on coffee items only */
+.product-modal-redeem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  width: 100%;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  padding: 11px 14px;
+
+  border: 1.5px solid #d2b278;
+  border-radius: 10px;
+
+  color: #5a3d13;
+  background: linear-gradient(180deg, #f8e3b8, #f4d39b);
+
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+  transition:
+    filter 0.15s ease,
+    transform 0.15s ease;
+}
+
+.product-modal-redeem:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+}

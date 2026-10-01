@@ -1,0 +1,463 @@
+.auth-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 30, 29, 0.68);
+  animation: auth-modal-fade 0.18s ease;
+}
+
+@keyframes auth-modal-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.auth-modal {
+  position: relative;
+  /* Deliberately large with a FIXED height — login, sign up and the
+     forgot-password flow all share the exact same box (the panel scrolls
+     on very short screens so no field is ever cut off). */
+  width: min(880px, 100%);
+  height: min(640px, 92vh);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 14px;
+  color: #234947;
+  background: #fffaf4;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: auth-modal-pop 0.2s ease;
+}
+
+@keyframes auth-modal-pop {
+  from {
+    opacity: 0.6;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-modal-close {
+  position: absolute;
+  /* Aligned with the "Back to Login" row of the forgot-password flow (panel
+     padding-top 26px + button center ≈ 40px) — and the exact same spot is
+     used on the login and sign up views so the X never jumps between modes. */
+  top: 23px;
+  right: 12px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #315654;
+  background: rgba(255, 250, 244, 0.92);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.auth-modal-close:hover {
+  background: #fff;
+}
+
+/* LEFT: brand art */
+.auth-modal-media {
+  overflow: hidden;
+  background: linear-gradient(160deg, #2c5653, #173230);
+}
+
+.auth-modal-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* RIGHT: form */
+.auth-modal-panel {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 32px 24px;
+  overflow-y: auto;
+}
+
+/* Vertically center the login / sign up / forgot content inside the tall
+   panel (safe centering — it scrolls from the top when there's no room). */
+.auth-modal-form,
+.auth-modal-forgot-flow {
+  width: 100%;
+  margin: auto 0;
+  animation: auth-step-in 0.22s ease;
+}
+
+@keyframes auth-step-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-modal-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  /* Lives inside the centered form group now — the form's 13px grid gap
+     already spaces it from the heading below. */
+  margin-bottom: 0;
+  padding: 4px;
+  border-radius: 10px;
+  background: #f3e6d1;
+}
+
+.auth-modal-tabs button {
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  color: #573016;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.auth-modal-tabs button.active {
+  color: #fff;
+  background: #285451;
+}
+
+.auth-modal-form {
+  display: grid;
+  gap: 13px;
+}
+
+.auth-modal-form h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.auth-modal-subtitle {
+  margin: -6px 0 0;
+  color: #54706c;
+  font-size: 12.5px;
+}
+
+.auth-modal-form label,
+.auth-modal-forgot-flow label {
+  display: grid;
+  gap: 5px;
+  color: #285451;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.auth-modal-form input,
+.auth-modal-forgot-flow input {
+  padding: 11px 13px;
+  border: 1.5px solid #d7b996;
+  border-radius: 9px;
+  color: #234947;
+  background: #fff;
+  font-size: 13.5px;
+  font-weight: 600;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.auth-modal-form input:focus,
+.auth-modal-forgot-flow input:focus {
+  outline: none;
+  border-color: #285451;
+  box-shadow: 0 0 0 3px rgba(40, 84, 81, 0.14);
+}
+
+.auth-modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.auth-modal-error {
+  margin: 0;
+  padding: 8px 11px;
+  border-radius: 8px;
+  color: #8c2f2f;
+  background: #fbe9e7;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.auth-modal-submit {
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 9px;
+  color: #fff;
+  background: #285451;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.auth-modal-submit:hover {
+  background: #183b39;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(24, 59, 57, 0.28);
+}
+
+.auth-modal-switch {
+  margin: 0;
+  color: #95866f;
+  font-size: 11.5px;
+  text-align: center;
+}
+
+.auth-modal-switch button {
+  border: 0;
+  background: transparent;
+  color: #b36538;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.auth-modal-switch button:hover {
+  text-decoration: underline;
+}
+
+/* Responsive: mobile — the art column hides and the form stands alone. */
+@media (max-width: 640px) {
+  .auth-modal {
+    width: min(440px, 100%);
+    height: auto;
+    max-height: calc(100vh - 32px);
+    grid-template-columns: 1fr;
+  }
+
+  .auth-modal-media {
+    display: none;
+  }
+
+  .auth-modal-panel {
+    padding: 24px 22px 22px;
+  }
+}
+
+/* Verification code boxes are part of a <form> now, so no separate
+   submit-row / enter hint is needed. */
+.auth-modal-code-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 2px;
+}
+
+/* Forgot Password? link under the password field — left aligned */
+.auth-modal-forgot {
+  justify-self: start;
+  margin-top: -2px;
+  border: 0;
+  background: transparent;
+  color: #b36538;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.auth-modal-forgot:hover {
+  text-decoration: underline;
+}
+
+/* Green info line (e.g. "Account created! Please log in.") */
+.auth-modal-notice {
+  margin: 0;
+  padding: 8px 11px;
+  border-radius: 8px;
+  color: #1e5b38;
+  background: #e2f4e8;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Forgot-password flow — the panel is a flex column. The Back button sits
+   at the top and the active step's <form> centers itself in the remaining
+   space (margin auto collapses safely when a step is taller than the
+   panel, so short screens scroll instead of clipping the buttons). */
+.auth-modal-forgot-flow {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.auth-modal-forgot-flow > form,
+.auth-modal-forgot-flow > .auth-modal-done {
+  display: grid;
+  gap: 13px;
+  align-content: start;
+  margin: auto 0;
+  animation: auth-step-in 0.22s ease;
+}
+
+.auth-modal-forgot-flow h2 {
+  margin: 0;
+}
+
+.auth-modal-forgot-flow > form .auth-modal-submit {
+  justify-self: center;
+  min-width: 220px;
+}
+
+.auth-modal-forgot-flow h2,
+.auth-modal-forgot-flow .auth-modal-subtitle {
+  max-width: 380px;
+  justify-self: center;
+}
+
+.auth-modal-forgot-flow .auth-modal-subtitle {
+  line-height: 1.55;
+}
+
+.auth-modal-forgot-flow label {
+  text-align: left;
+}
+
+.auth-modal-back {
+  /* Flex-column child: center it instead of stretching — justify-self does
+     nothing here, which made the button span the whole panel width. */
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 13px;
+  border: 0;
+  border-radius: 8px;
+  color: #285451;
+  background: #f3e6d1;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.auth-modal-back:hover {
+  background: #ecd9ba;
+  transform: translateY(-1px);
+}
+
+/* 6 verification code boxes */
+.auth-modal-code-label {
+  text-align: center !important;
+}
+
+.auth-modal-code-boxes {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 2px;
+}
+
+.auth-modal-code-boxes input {
+  width: 46px;
+  height: 54px;
+  padding: 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 10px;
+}
+
+.auth-modal-code-boxes input:focus {
+  transform: translateY(-2px);
+}
+
+.auth-modal-code-boxes input.filled {
+  border-color: #285451;
+  background: #eef6f3;
+}
+
+.auth-modal-email-chip {
+  padding: 12px 14px;
+  border: 1.5px dashed #d7b996;
+  border-radius: 10px;
+  color: #285451;
+  background: #fffdf9;
+  font-size: 14px;
+  font-weight: 800;
+  word-break: break-all;
+}
+
+.auth-modal-demo-mail {
+  display: grid;
+  gap: 3px;
+  justify-self: center;
+  width: min(320px, 100%);
+  padding: 11px 14px;
+  border-left: 3px solid #d2b278;
+  border-radius: 8px;
+  color: #54706c;
+  background: #f6efe2;
+  font-size: 12px;
+  text-align: left;
+}
+
+.auth-modal-demo-mail strong {
+  color: #573016;
+  font-size: 10.5px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.auth-modal-demo-mail b {
+  color: #285451;
+  font-size: 15px;
+  letter-spacing: 3px;
+}
+
+.auth-modal-done {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  padding: 26px 10px;
+  text-align: center;
+}
+
+.auth-modal-done svg {
+  color: #2f9e6b;
+}
+
+.auth-modal-done .auth-modal-subtitle {
+  margin: 0;
+  max-width: 320px;
+}

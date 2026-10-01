@@ -1,0 +1,525 @@
+/* =====================================================================
+   CUSTOMIZE BURGER - styles
+   Identical layout & palette to the frappe / tea customizer modals;
+   every class uses the "bg-" prefix.
+   ===================================================================== */
+
+.bg-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 30, 29, 0.72);
+  animation: bg-fade 0.18s ease;
+}
+
+@keyframes bg-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.bg-modal {
+  position: relative;
+  width: min(1180px, 100%);
+  height: min(660px, 92vh);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 16px;
+  color: #234947;
+  background: #fffaf4;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  animation: bg-pop 0.22s ease;
+}
+
+@keyframes bg-pop {
+  from {
+    opacity: 0.6;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bg-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #315654;
+  background: rgba(255, 250, 244, 0.94);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+}
+
+.bg-modal-close:hover {
+  background: #fff;
+}
+
+/* ---------- LEFT: 3D stage ---------- */
+.bg-stage {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  background: linear-gradient(165deg, #2c5653, #173230 60%, #142b28);
+  overflow: hidden;
+}
+
+.bg-stage-top {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #fff;
+}
+
+.bg-stage-caption {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 11.5px;
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+  flex: 0 1 auto;
+  max-width: 70%;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bg-stage-extras {
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: #2c5653;
+  background: #f4d39b;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.bg-stage-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+
+/* ---------- RIGHT: wizard panel ---------- */
+.bg-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 26px 26px 0;
+}
+
+.bg-panel h2 {
+  margin: 0 0 6px;
+  padding-right: 40px;
+  font-size: 23px;
+}
+
+.bg-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e7d9c6;
+}
+
+.bg-progress-label {
+  color: #6a7f7b;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.bg-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.bg-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #dccdb8;
+  transition: background 0.2s ease;
+}
+
+.bg-dot.active {
+  background: #285451;
+}
+
+.bg-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+}
+
+.bg-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bg-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bg-body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #dccdb8;
+}
+
+.bg-body::-webkit-scrollbar-thumb:hover {
+  background: #b99f7e;
+}
+
+.bg-step-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.bg-step-subtitle {
+  margin: 0 0 14px;
+  color: #6a7f7b;
+  font-size: 12px;
+}
+
+.bg-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bg-option-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 8px 9px;
+  border: 1.5px solid #dccdb8;
+  border-radius: 12px;
+  color: #365755;
+  background: #fffdf9;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.bg-option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(72, 49, 24, 0.12);
+}
+
+.bg-option-card.selected {
+  border-color: #285451;
+  background: #eef6f3;
+  box-shadow: 0 0 0 1px #285451 inset;
+}
+
+.bg-option-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.bg-option-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.bg-option-price {
+  color: #b36538;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.bg-option-check {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #285451;
+  font-size: 11px;
+}
+
+/* Pills (steps without images) kept for parity with frappe/tea */
+.bg-pills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bg-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 56px;
+  padding: 12px 12px;
+  border: 1.5px solid #dccdb8;
+  border-radius: 12px;
+  text-align: center;
+  color: #365755;
+  background: #fffdf9;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.bg-pill:hover {
+  border-color: #285451;
+}
+
+.bg-pill.selected {
+  border-color: #285451;
+  color: #fff;
+  background: #285451;
+}
+
+.bg-pill em {
+  color: #b36538;
+  font-style: normal;
+  font-size: 11px;
+}
+
+.bg-pill.selected em {
+  color: #f4d39b;
+}
+
+/* Summary step */
+.bg-summary {
+  padding-bottom: 8px;
+}
+
+.bg-summary-group {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid #e7d9c6;
+  border-radius: 10px;
+  background: #fffdf9;
+}
+
+.bg-summary-group h4 {
+  margin: 0 0 6px;
+  color: #285451;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.bg-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 0;
+  color: #54706c;
+  font-size: 12.5px;
+}
+
+.bg-summary-row span:last-child {
+  color: #234947;
+  font-weight: 800;
+}
+
+/* Footer */
+.bg-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 14px 0 18px;
+  border-top: 1px solid #e7d9c6;
+}
+
+.bg-footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 132px;
+  border: 0;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.bg-back {
+  padding: 12px 24px;
+  color: #285451;
+  background: #e4e9e6;
+}
+
+.bg-back:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.bg-next,
+.bg-add {
+  padding: 12px 24px;
+  color: #fff;
+  background: #285451;
+}
+
+.bg-next:hover,
+.bg-add:hover:not(:disabled) {
+  background: #183b39;
+}
+
+/* Add stays put until at least one customized option is picked. */
+.bg-add:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.bg-required-note {
+  margin: 0 0 10px;
+  padding: 9px 12px;
+  border: 1px solid rgba(179, 38, 30, 0.3);
+  border-radius: 9px;
+  color: #b3261e;
+  background: rgba(179, 38, 30, 0.06);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.bg-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  color: #6a7f7b;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.bg-total strong {
+  color: #234947;
+  font-size: 19px;
+  letter-spacing: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .bg-modal {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: 94vh;
+    overflow-y: auto;
+  }
+
+  .bg-stage {
+    min-height: 300px;
+  }
+
+  .bg-panel {
+    padding: 20px 18px 0;
+  }
+
+  .bg-panel h2 {
+    font-size: 20px;
+  }
+
+  .bg-options-grid,
+  .bg-pills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bg-footer {
+    flex-wrap: wrap;
+  }
+}
+
+/* guest's custom BURGER name, shown above the summary */
+.bg-name-field {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid #e7d9c6;
+  border-radius: 10px;
+  background: #fffdf9;
+}
+
+.bg-name-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #234947;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.bg-name-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d9c8b2;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #2f3b38;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bg-name-field input:focus {
+  outline: none;
+  border-color: #3e8a7c;
+  box-shadow: 0 0 0 3px rgba(62, 138, 124, 0.15);
+}
+
+.bg-name-field input::placeholder {
+  color: #b0a899;
+  font-weight: 500;
+}
+

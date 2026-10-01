@@ -1,0 +1,236 @@
+/* =========================
+   ADMIN SIDEBAR
+   Fixed rail on the left of every admin page. Dark brown brand panel
+   (the same warm palette as the admin login) with the Cafétcha logo and
+   name on top, the section links in the middle, and the Admin Account
+   pinned at the bottom.
+========================= */
+
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+
+  width: 250px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(180deg, #4a2a13 0%, #2c1808 100%);
+
+  overflow: hidden;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.admin-sidebar-brand {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px 14px;
+
+  border-bottom: 1px solid rgba(243, 230, 209, 0.12);
+
+  text-decoration: none;
+}
+
+.admin-sidebar-logo {
+  width: 58px;
+  height: 58px;
+
+  display: block;
+  object-fit: contain;
+
+  flex-shrink: 0;
+}
+
+.admin-sidebar-darwin-logo {
+  border: 2px solid rgba(243, 230, 209, 0.72);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.admin-sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.2;
+
+  min-width: 0;
+}
+
+.admin-sidebar-name {
+  font-family: Georgia, "Times New Roman", serif;
+
+  color: #f3e6d1;
+
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
+.admin-sidebar-subtitle {
+  margin-top: 3px;
+
+  color: #bda58e;
+
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.admin-sidebar-nav {
+  flex: 1;
+
+  padding: 14px 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  overflow-y: auto;
+}
+
+/* Thin scrollbar that blends into the brown rail */
+.admin-sidebar-nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+.admin-sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(243, 230, 209, 0.18);
+  border-radius: 999px;
+}
+
+.admin-nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 11px 14px;
+
+  border-radius: 10px;
+
+  color: rgba(243, 230, 209, 0.78);
+
+  font-size: 13.5px;
+  font-weight: 600;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.admin-nav-item:hover {
+  background: rgba(243, 230, 209, 0.08);
+  color: #f3e6d1;
+}
+
+/* Active section — the lighter brown pill from the design reference */
+.admin-nav-item.active {
+  background: linear-gradient(90deg, #7a4a24, #5b3415);
+
+  color: #ffffff;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+.admin-nav-new-dot {
+  width: 9px;
+  height: 9px;
+  margin-left: auto;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #e53935;
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.14);
+}
+
+@media (max-width: 960px) {
+  .admin-nav-new-dot {
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    margin: 0;
+  }
+}
+
+/* =========================
+   FOOTER (ADMIN ACCOUNT)
+========================= */
+
+/* Logout is a real button, not a navigation link. A warm amber accent keeps
+   it visibly distinct from the cream navigation labels. */
+.admin-logout {
+  width: 100%;
+  border: 0;
+  color: rgba(243, 230, 209, 0.78);
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-logout:hover {
+  background: rgba(217, 185, 138, 0.14);
+  color: #f3e6d1;
+}
+
+.admin-sidebar-footer {
+  padding: 12px;
+
+  border-top: 1px solid rgba(243, 230, 209, 0.12);
+}
+
+/* =========================
+   SMALL SCREENS
+   The rail collapses to an icon-only strip; the dashboard's left margin
+   follows the same breakpoint in AdminDashboard.css.
+========================= */
+
+@media (max-width: 960px) {
+  .admin-sidebar {
+    width: 78px;
+  }
+
+  .admin-sidebar-brand {
+    justify-content: center;
+
+    padding: 14px 8px;
+  }
+
+  .admin-sidebar-brand-text {
+    display: none;
+  }
+
+  .admin-nav-item {
+    justify-content: center;
+    gap: 0;
+
+    padding: 12px 0;
+  }
+
+  .admin-nav-label {
+    display: none;
+  }
+}

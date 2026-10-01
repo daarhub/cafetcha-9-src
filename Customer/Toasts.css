@@ -1,0 +1,121 @@
+.toast-stack {
+  position: fixed;
+  top: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: grid;
+  gap: 10px;
+  width: min(500px, calc(100vw - 32px));
+}
+
+/* Staff and admin panels have no customer header, so their action toasts sit
+   near the top of the viewport while remaining clear of page controls. */
+.toast-stack-staff,
+.toast-stack-admin {
+  top: 24px;
+}
+
+.toast {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px;
+  color: #fff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  animation: toast-in 0.3s cubic-bezier(0.2, 0.9, 0.3, 1.15);
+}
+
+/* Auto-dismiss progress bar along the bottom edge */
+.toast::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: #f4d39b;
+  transform-origin: left;
+  animation: toast-bar 3.2s linear forwards;
+}
+
+.toast-icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.toast-success {
+  background: linear-gradient(135deg, #2a5f57, #1d4744);
+}
+
+.toast-success .toast-icon {
+  color: #7fd6b8;
+  background: rgba(127, 214, 184, 0.16);
+}
+
+.toast-error {
+  background: linear-gradient(135deg, #8a2f28, #67211c);
+}
+
+.toast-error .toast-icon {
+  color: #ffb4a8;
+  background: rgba(255, 180, 168, 0.16);
+}
+
+.toast-info {
+  background: linear-gradient(135deg, #355f58, #274743);
+}
+
+.toast-info .toast-icon {
+  color: #f4d39b;
+  background: rgba(244, 211, 155, 0.16);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-bar {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .toast-stack {
+    top: 90px;
+    width: calc(100vw - 24px);
+  }
+
+  .toast-stack-staff,
+  .toast-stack-admin {
+    top: 20px;
+  }
+
+  .toast {
+    font-size: 13px;
+  }
+}

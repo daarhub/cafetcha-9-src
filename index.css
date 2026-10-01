@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family:
+    "Segoe UI",
+    Tahoma,
+    Geneva,
+    Verdana,
+    sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* The fixed header is 88px tall — keep smooth-scrolled homepage sections
+   (footer Quick Links) from sliding underneath it. */
+#highlights,
+#menu,
+#reviews {
+  scroll-margin-top: 88px;
+}

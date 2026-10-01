@@ -1,0 +1,47 @@
+@import "./AdminShared.css";
+
+.admin-settings-page {
+  display: grid;
+  gap: 28px;
+}
+
+/* The page gap already separates the header from the first card, so the
+   header's own bottom margin is removed to close the empty band. */
+.admin-settings-page > .admin-management-header {
+  margin-bottom: 0;
+}
+
+.admin-settings-grid,
+.admin-settings-admin-profile {
+  display: grid;
+  gap: 28px;
+  width: 100%;
+  max-width: none;
+}
+
+.admin-settings-admin-profile {
+  border-top: 1px solid #cfae7d;
+  padding-top: 28px;
+}
+
+.admin-settings-card {
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+}
+.admin-settings-card > header { display: flex; align-items: flex-start; gap: 11px; padding-bottom: 8px; border-bottom: 1px solid #eadcc8; color: #b36538; }
+.admin-settings-card > header h2 { margin: 0; color: #573016; font-size: 17px; }
+.admin-settings-card > header p { margin: 4px 0 0; color: #9b8168; font-size: 12px; }
+.admin-settings-card > label:not(.admin-setting-toggle) { display: grid; gap: 6px; color: #7b604c; font-size: 12px; font-weight: 800; }
+/* Icon + label text share one row; only the input drops to the next line. */
+.admin-settings-card > label.admin-settings-field { grid-template-columns: auto minmax(0, 1fr); align-items: center; column-gap: 7px; }
+.admin-settings-card > label.admin-settings-field > svg { color: #b36538; }
+.admin-settings-card > label.admin-settings-field > input { grid-column: 1 / -1; }
+.admin-settings-card input:not([type="checkbox"]) { width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid #d7b996; border-radius: 9px; color: #573016; background: #fff; font-size: 13px; }
+.admin-setting-toggle { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 12px; border: 1px solid #eadcc8; border-radius: 10px; color: #573016; background: #f9f4ed; font-size: 13px; font-weight: 800; }
+.admin-setting-toggle span { display: grid; gap: 3px; }
+.admin-setting-toggle small { color: #9b8168; font-size: 11px; font-weight: 600; }
+.admin-setting-toggle input { width: 20px; height: 20px; accent-color: #2e8b57; }
+.admin-settings-note { margin: 0; color: #95866f; font-size: 12px; }
+.admin-settings-actions { display: flex; justify-content: flex-end; gap: 10px; }
+@media (max-width: 700px) { .admin-settings-actions { justify-content: stretch; flex-direction: column; } .admin-settings-actions > * { width: 100%; justify-content: center; } }

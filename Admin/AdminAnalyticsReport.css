@@ -1,0 +1,307 @@
+@import "./AdminShared.css";
+
+.admin-analytics-report-page {
+  overflow-y: auto;
+}
+
+.admin-analytics-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.admin-analytics-header-actions .admin-secondary-button {
+  min-width: 132px;
+  justify-content: center;
+}
+
+.admin-analytics-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  gap: 14px;
+  margin-bottom: 18px;
+  text-align: right;
+}
+
+.admin-analytics-toolbar p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+  margin: 0;
+  color: #7b604c;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: left;
+}
+
+.admin-analytics-toolbar .admin-period-select {
+  min-width: 220px;
+  flex-shrink: 0;
+  text-align: left;
+}
+
+.admin-analytics-summary-cards {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.admin-analytics-summary-cards article {
+  min-height: 132px;
+}
+
+.admin-analytics-report-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.admin-week-sales-panel header {
+  align-items: center;
+}
+
+.admin-week-sales-panel header > strong {
+  color: #573016;
+  font-size: 25px;
+}
+
+.admin-week-chart {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  height: 240px;
+  padding: 12px 5px 0;
+}
+
+.admin-week-chart > div {
+  display: flex;
+  height: 100%;
+  flex: 1;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-week-chart > div > span {
+  display: block;
+  width: min(42px, 70%);
+  min-height: 5px;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(180deg, #d89968, #573016);
+}
+
+.admin-week-chart small {
+  color: #9b8168;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-product-performance-grid,
+.admin-customer-performance-grid,
+.admin-category-performance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.admin-category-performance-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.admin-product-performance-grid h3 {
+  margin: 0 0 9px;
+  color: #573016;
+  font-size: 14px;
+}
+
+.admin-performance-list,
+.admin-payment-list {
+  display: grid;
+  gap: 8px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.admin-performance-list > div,
+.admin-payment-list > div {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 11px;
+  border-radius: 9px;
+  background: #f7f0e6;
+}
+
+.admin-performance-list > div:not(:has(b)),
+.admin-payment-list > div {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.admin-performance-list b {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: #fff;
+  background: #573016;
+  font-size: 11px;
+}
+
+.admin-performance-list span,
+.admin-payment-list span {
+  color: #573016;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin-performance-list strong,
+.admin-payment-list strong,
+.admin-payment-list b {
+  color: #9b8168;
+  font-size: 11px;
+  text-align: right;
+}
+
+.admin-payment-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-height: none;
+  overflow: visible;
+}
+
+.admin-payment-list > div {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto;
+  gap: 8px 14px;
+  min-height: 92px;
+  padding: 15px 16px;
+  border: 1px solid #eadcc8;
+  background: #f9f4ed;
+}
+
+.admin-payment-list > div > span {
+  grid-column: 1 / -1;
+  align-self: start;
+  font-size: 14px;
+}
+
+.admin-payment-list > div > strong {
+  grid-column: 1;
+  align-self: end;
+  text-align: left;
+}
+
+.admin-payment-list > div > b {
+  grid-column: 2;
+  align-self: end;
+  text-align: right;
+}
+
+.admin-category-performance-grid > div,
+.admin-customer-performance-grid > div {
+  display: grid;
+  gap: 5px;
+  padding: 15px;
+  border: 1px solid #eadcc8;
+  border-radius: 12px;
+  background: #f9f4ed;
+}
+
+.admin-category-performance-grid span,
+.admin-customer-performance-grid span {
+  color: #9b8168;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.admin-category-performance-grid strong,
+.admin-customer-performance-grid strong {
+  color: #573016;
+  font-size: 21px;
+}
+
+.admin-category-performance-grid small {
+  color: #7b604c;
+  font-size: 11px;
+}
+
+.admin-customer-performance-grid > div {
+  grid-template-columns: 22px 1fr;
+  align-items: center;
+}
+
+.admin-customer-performance-grid svg {
+  color: #b36538;
+  grid-row: span 2;
+}
+
+.admin-customer-performance-grid strong {
+  grid-column: 2;
+}
+
+.admin-month-comparison {
+  margin-top: 18px;
+}
+
+@media (max-width: 1250px) {
+  .admin-analytics-summary-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .admin-analytics-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .admin-category-performance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .admin-analytics-header-actions {
+    justify-content: flex-start;
+  }
+
+  .admin-analytics-summary-cards,
+  .admin-product-performance-grid,
+  .admin-customer-performance-grid,
+  .admin-category-performance-grid,
+  .admin-payment-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .admin-sidebar,
+  .toast-stack,
+  .toast-stack-admin,
+  .admin-analytics-header-actions,
+  .admin-analytics-toolbar,
+  .admin-printing .toast-stack,
+  .admin-printing .toast {
+    display: none !important;
+  }
+
+  .admin-management-page {
+    margin: 0;
+    padding: 20px;
+    background: #fff;
+  }
+
+  .admin-analytics-report-page {
+    overflow: visible;
+  }
+
+  .admin-analytics-panel,
+  .admin-management-panel {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+}

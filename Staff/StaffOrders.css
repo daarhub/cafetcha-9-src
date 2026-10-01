@@ -1,0 +1,941 @@
+/* =========================
+   STAFF ORDER TOOLS
+   Shared layout for the active Orders queue and completed Order History.
+========================= */
+
+.staff-page {
+  min-height: 100vh;
+  margin-left: 250px;
+  padding: 28px 32px 48px;
+  background: #f7f0e6;
+  color: #573016;
+}
+
+.staff-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.staff-page-eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  color: #b36538;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.staff-page-header h1 {
+  margin: 0;
+  color: #573016;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+}
+
+.staff-page-header p {
+  margin: 6px 0 0;
+  color: #9b8168;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.staff-page-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+  padding: 10px 14px;
+  border: 1.5px solid #e3d3b8;
+  border-radius: 11px;
+  background: #fffdf9;
+  color: #b36538;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.staff-page-link:hover {
+  border-color: #b36538;
+  color: #573016;
+  transform: translateY(-1px);
+}
+
+.staff-orders-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.staff-summary-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 17px 18px;
+  border: 1.5px solid #e3d3b8;
+  border-radius: 15px;
+  background: #fffdf9;
+  box-shadow: 0 9px 24px rgba(63, 34, 16, 0.05);
+}
+
+.staff-summary-card > span {
+  color: #9b8168;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.staff-summary-card > strong {
+  margin-top: 5px;
+  color: #573016;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.staff-summary-card > small {
+  margin-top: 5px;
+  color: #bda58e;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.staff-summary-card-dark {
+  border-color: transparent;
+  background: linear-gradient(160deg, #6b3d1e, #3f2210);
+  box-shadow: 0 13px 28px rgba(63, 34, 16, 0.22);
+}
+
+.staff-summary-card-dark > span,
+.staff-summary-card-dark > small {
+  color: rgba(255, 253, 249, 0.72);
+}
+
+.staff-summary-card-dark > strong {
+  color: #ffffff;
+}
+
+.staff-surface {
+  border: 1.5px solid #e3d3b8;
+  border-radius: 17px;
+  background: #fffdf9;
+  box-shadow: 0 10px 26px rgba(63, 34, 16, 0.06);
+}
+
+.staff-orders-card,
+.staff-history-card {
+  padding: 20px;
+}
+
+.staff-orders-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.staff-orders-toolbar h2 {
+  margin: 0;
+  color: #573016;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.staff-orders-toolbar p {
+  margin: 5px 0 0;
+  color: #9b8168;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.staff-order-list,
+.staff-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.staff-order-card,
+.staff-history-order {
+  padding: 15px 16px;
+  border: 1px solid #efdfc9;
+  border-radius: 13px;
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.staff-order-card:hover,
+.staff-history-order:hover {
+  border-color: #d7b996;
+  box-shadow: 0 6px 16px rgba(63, 34, 16, 0.06);
+}
+
+.staff-reward-card {
+  border-left: 3px solid #b36538;
+}
+
+.staff-order-card-head,
+.staff-history-order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.staff-order-identifiers,
+.staff-order-head-right,
+.staff-order-kind,
+.staff-order-mode,
+.staff-order-summary p,
+.staff-order-note,
+.staff-history-order-head > div,
+.staff-history-order-main p {
+  display: flex;
+  align-items: center;
+}
+
+.staff-order-identifiers {
+  gap: 10px;
+}
+
+.staff-order-code {
+  color: #573016;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.staff-order-kind {
+  gap: 4px;
+  color: #b36538;
+  font-size: 10.5px;
+  font-weight: 800;
+}
+
+.staff-order-head-right {
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.staff-order-mode {
+  gap: 5px;
+  color: #9b8168;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.staff-order-status,
+.staff-history-completed {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #2e8b57;
+  background: #2e8b571a;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.staff-order-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 14px 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0e4d2;
+}
+
+.staff-order-summary h3,
+.staff-history-order-main h3 {
+  margin: 0;
+  color: #573016;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.staff-order-summary p,
+.staff-history-order-main p {
+  gap: 5px;
+  margin: 5px 0 0;
+  color: #9b8168;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.staff-status-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.staff-status-control > span {
+  color: #bda58e;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.staff-status-control select {
+  max-width: 155px;
+  padding: 7px 9px;
+  border: 1px solid #d7b996;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #573016;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.staff-status-control select:focus {
+  outline: 2px solid rgba(179, 101, 56, 0.25);
+  outline-offset: 1px;
+}
+
+.staff-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(310px, 100%);
+  padding: 10px 12px;
+  border: 1.5px solid #e3d3b8;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #bda58e;
+}
+
+.staff-search:focus-within {
+  border-color: #b36538;
+  color: #b36538;
+  box-shadow: 0 0 0 3px rgba(179, 101, 56, 0.1);
+}
+
+.staff-search input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #573016;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.staff-search input::placeholder {
+  color: #bda58e;
+}
+
+.staff-orders-filter {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 15px;
+  color: #9b8168;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.staff-orders-filter select {
+  padding: 7px 10px;
+  border: 1px solid #e3d3b8;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #573016;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.staff-orders-count {
+  margin-left: auto;
+  color: #bda58e;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.staff-order-list,
+.staff-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.staff-order-card,
+.staff-history-order {
+  padding: 15px 16px;
+  border: 1px solid #efdfc9;
+  border-radius: 13px;
+  background: #ffffff;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.staff-order-card:hover,
+.staff-history-order:hover {
+  border-color: #d7b996;
+  box-shadow: 0 6px 16px rgba(63, 34, 16, 0.06);
+}
+
+.staff-reward-card {
+  border-left: 3px solid #b36538;
+}
+
+.staff-order-card-head,
+.staff-history-order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.staff-order-identifiers,
+.staff-order-head-right,
+.staff-order-kind,
+.staff-order-mode,
+.staff-order-summary p,
+.staff-order-note,
+.staff-history-order-head > div,
+.staff-history-order-main p {
+  display: flex;
+  align-items: center;
+}
+
+.staff-order-identifiers {
+  gap: 10px;
+}
+
+.staff-order-code {
+  color: #573016;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.staff-order-kind {
+  gap: 4px;
+  color: #b36538;
+  font-size: 10.5px;
+  font-weight: 800;
+}
+
+.staff-order-head-right {
+  gap: 9px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.staff-order-mode {
+  gap: 5px;
+  color: #9b8168;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.staff-order-status,
+.staff-history-completed {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #2e8b57;
+  background: #2e8b571a;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.staff-order-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin: 14px 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0e4d2;
+}
+
+.staff-order-summary h3,
+.staff-history-order-main h3 {
+  margin: 0;
+  color: #573016;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.staff-order-summary p,
+.staff-history-order-main p {
+  gap: 5px;
+  margin: 5px 0 0;
+  color: #9b8168;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.staff-status-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.staff-status-control > span {
+  color: #bda58e;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.staff-status-control select {
+  max-width: 155px;
+  padding: 7px 9px;
+  border: 1px solid #d7b996;
+  border-radius: 8px;
+  background: #fffdf9;
+  color: #573016;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.staff-status-control select:focus {
+  outline: 2px solid rgba(179, 101, 56, 0.25);
+  outline-offset: 1px;
+}
+
+.staff-order-details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.staff-order-items {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.staff-order-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #573016;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.staff-order-item small,
+.staff-history-items small {
+  color: #bda58e;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+.staff-order-total {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.staff-order-total span {
+  color: #bda58e;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.staff-order-total strong {
+  color: #573016;
+  font-size: 16px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.staff-order-no-items {
+  margin: 0;
+  color: #bda58e;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.staff-order-note {
+  gap: 5px;
+  margin: 10px 0 0;
+  color: #9b8168;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.staff-empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+  padding: 42px 20px 34px;
+  color: #b36538;
+  text-align: center;
+}
+
+.staff-empty-state strong {
+  color: #573016;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.staff-empty-state p {
+  margin: 0;
+  color: #9b8168;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 960px) {
+  .staff-page {
+    margin-left: 78px;
+    padding: 24px 18px 40px;
+  }
+
+  .staff-orders-summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .staff-page-header,
+  .staff-orders-toolbar,
+  .staff-order-summary,
+  .staff-order-card-head,
+  .staff-history-order-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .staff-page-link {
+    align-self: flex-start;
+  }
+
+  .staff-search {
+    width: 100%;
+  }
+
+  .staff-orders-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-order-head-right,
+  .staff-status-control {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .staff-status-control select {
+    max-width: none;
+    flex: 1;
+  }
+
+  .staff-order-details,
+  .staff-history-order-main {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .staff-order-total {
+    align-items: flex-start;
+  }
+}
+
+
+
+/* =========================
+   STAFF ORDER TOOL STATES
+========================= */
+
+.staff-history-summary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.staff-order-mode,
+.staff-queue-mode,
+.staff-history-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.staff-order-mode.delivery,
+.staff-queue-mode.delivery,
+.staff-history-mode.delivery {
+  color: #2563eb;
+  background: #2563eb1a;
+}
+
+.staff-order-mode.pickup,
+.staff-queue-mode.pickup,
+.staff-history-mode.pickup {
+  color: #b36538;
+  background: #b365381a;
+}
+
+.staff-order-card,
+.staff-history-order {
+  padding: 20px;
+}
+
+.staff-order-code,
+.staff-history-order-head strong {
+  font-size: 16px;
+}
+
+.staff-order-kind,
+.staff-history-order-head > div > span {
+  font-size: 11.5px;
+}
+
+.staff-order-summary h3,
+.staff-history-order-main h3 {
+  font-size: 16px;
+}
+
+.staff-order-summary p,
+.staff-history-order-main p {
+  font-size: 12.5px;
+}
+
+.staff-order-item,
+.staff-history-items li {
+  font-size: 13.5px;
+}
+
+.staff-order-total strong,
+.staff-history-total {
+  font-size: 18px;
+}
+
+.staff-order-note {
+  font-size: 12px;
+}
+
+.staff-status-control > span {
+  font-size: 11.5px;
+}
+
+.staff-status-control select {
+  padding: 9px 11px;
+  font-size: 12.5px;
+}
+
+.staff-history-head-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.staff-history-delete {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #e3d3b8;
+  border-radius: 50%;
+  color: #b3261e;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.staff-history-delete:hover {
+  background: #fff1f0;
+  transform: translateY(-1px);
+}
+
+.staff-history-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Shared confirmation dialog used before final status changes and staff
+   history deletion. */
+.staff-confirm-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(44, 24, 8, 0.42);
+}
+
+.staff-confirm-modal {
+  position: relative;
+  width: min(430px, 100%);
+  padding: 30px;
+  border: 1.5px solid #e3d3b8;
+  border-radius: 17px;
+  background: #fffdf9;
+  box-shadow: 0 22px 60px rgba(63, 34, 16, 0.22);
+  text-align: center;
+}
+
+.staff-confirm-icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 13px;
+  border-radius: 50%;
+  color: #b3261e;
+  background: #fff0ef;
+}
+
+.staff-confirm-icon.success {
+  color: #2e8b57;
+  background: #e7f5ed;
+}
+
+.staff-confirm-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 8px;
+  color: #9b8168;
+  background: transparent;
+  cursor: pointer;
+}
+
+.staff-confirm-close:hover {
+  background: #f7f0e6;
+}
+
+.staff-confirm-modal h2 {
+  margin: 0;
+  color: #573016;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.staff-confirm-modal p {
+  margin: 9px 0 0;
+  color: #9b8168;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.staff-confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.staff-confirm-cancel,
+.staff-confirm-delete {
+  padding: 10px 16px;
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.staff-confirm-cancel {
+  border: 1.5px solid #d7b996;
+  color: #54706c;
+  background: transparent;
+}
+
+.staff-confirm-delete {
+  border: 0;
+  color: #ffffff;
+  background: #b3261e;
+}
+
+.staff-confirm-success {
+  background: #2e8b57;
+}
+
+.staff-confirm-success:hover {
+  background: #246b45;
+}
+
+.staff-confirm-cancel:hover {
+  background: #f6efe3;
+}
+
+.staff-confirm-delete:hover {
+  background: #8c1d17;
+}
+
+.staff-confirm-delete.staff-confirm-success:hover {
+  background: #246b45;
+}
+
+@media (max-width: 960px) {
+  .staff-history-summary {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .staff-history-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .staff-history-head-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+
+/* Keep the mode and status labels easy to scan in the staff Orders list. */
+.staff-order-mode,
+.staff-order-status {
+  font-size: 14px;
+}
+
+.staff-order-mode {
+  padding: 5px 10px;
+}
+
+.staff-order-status {
+  padding: 7px 13px;
+  font-size: 14px;
+}
+
+.staff-status-control select {
+  min-width: 160px;
+  max-width: 175px;
+  padding: 7px 10px;
+  font-size: 12px;
+}
+

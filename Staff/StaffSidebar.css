@@ -1,0 +1,209 @@
+/* =========================
+   STAFF SIDEBAR
+   Fixed rail on the left of every staff page. Dark brown brand panel
+   (the same warm palette as the staff/admin login) with the Cafétcha
+   logo and name on top plus the "Staff Panel" title, the section links
+   in the middle, and Logout pinned at the bottom.
+========================= */
+
+.staff-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 200;
+
+  width: 250px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: linear-gradient(180deg, #4a2a13 0%, #2c1808 100%);
+
+  overflow: hidden;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.staff-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 16px 14px;
+
+  border-bottom: 1px solid rgba(243, 230, 209, 0.12);
+
+  text-decoration: none;
+}
+
+.staff-sidebar-logo {
+  width: 58px;
+  height: 58px;
+
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid rgba(243, 230, 209, 0.7);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+
+  flex-shrink: 0;
+}
+
+.staff-sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.2;
+
+  min-width: 0;
+}
+
+.staff-sidebar-name {
+  font-family: Georgia, "Times New Roman", serif;
+
+  color: #f3e6d1;
+
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  white-space: nowrap;
+}
+
+.staff-sidebar-subtitle {
+  margin-top: 3px;
+
+  color: #bda58e;
+
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.staff-sidebar-nav {
+  flex: 1;
+
+  padding: 14px 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  overflow-y: auto;
+}
+
+/* Thin scrollbar that blends into the brown rail */
+.staff-sidebar-nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+.staff-sidebar-nav::-webkit-scrollbar-thumb {
+  background: rgba(243, 230, 209, 0.18);
+  border-radius: 999px;
+}
+
+.staff-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+
+  padding: 11px 14px;
+
+  border: 0;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: rgba(243, 230, 209, 0.78);
+
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.staff-nav-item:hover {
+  background: rgba(243, 230, 209, 0.08);
+  color: #f3e6d1;
+}
+
+/* Active section — the lighter brown pill from the design reference */
+.staff-nav-item.active {
+  background: linear-gradient(90deg, #7a4a24, #5b3415);
+
+  color: #ffffff;
+
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================
+   FOOTER (LOGOUT)
+========================= */
+
+.staff-sidebar-footer {
+  padding: 12px;
+
+  border-top: 1px solid rgba(243, 230, 209, 0.12);
+}
+
+/* Logout wears a slightly warmer hover to stand apart from navigation */
+.staff-logout:hover {
+  background: rgba(179, 101, 56, 0.22);
+  color: #f3e6d1;
+}
+
+/* =========================
+   SMALL SCREENS
+   The rail collapses to an icon-only strip; the dashboard's left margin
+   follows the same breakpoint in StaffDashboard.css.
+========================= */
+
+@media (max-width: 960px) {
+  .staff-sidebar {
+    width: 78px;
+  }
+
+  .staff-sidebar-brand {
+    justify-content: center;
+
+    padding: 14px 8px;
+  }
+
+  .staff-sidebar-brand-text {
+    display: none;
+  }
+
+  .staff-nav-item {
+    justify-content: center;
+    gap: 0;
+
+    padding: 12px 0;
+  }
+
+  .staff-nav-label {
+    display: none;
+  }
+
+}

@@ -1,0 +1,492 @@
+.tea-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 30, 29, 0.72);
+  animation: tea-fade 0.18s ease;
+}
+
+@keyframes tea-fade {
+  from {
+    opacity:  0;
+  }
+
+  to {
+    opacity:  1;
+  }
+}
+
+.tea-modal {
+  position: relative;
+  width: min(1180px, 100%);
+  height: min(660px, 92vh);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  border-radius:  16px;
+  color: #234947;
+  background: #fffaf4;
+  box-shadow:  0 24px 70px rgba(0, 0, 0, 0.35);
+  animation: tea-pop 0.22s ease;
+}
+
+@keyframes tea-pop {
+  from {
+    opacity:  0.6;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity:  1;
+    transform: translateY(0);
+  }
+}
+
+.tea-modal-close {
+  position: absolute;
+  top:  12px;
+  right:  12px;
+  z-index:  5;
+  width:  36px;
+  height:  36px;
+  display: grid;
+  place-items: center;
+  border:0;
+  border-radius:  50%;
+  color:#315654;
+  background: rgba(255, 250, 244, 0.94);
+  cursor: pointer;
+  box-shadow:  0 2px 8px rgba(0, 0, 0, 0.14);
+}
+
+.tea-modal-close:hover {
+  background: #fff;
+}
+
+/* ---------- LEFT: 3D stage ---------- */
+.tea-stage {
+  position: relative;
+  min-height:  520px;
+  display: grid;
+  background: linear-gradient(165deg, #2c5653, #173230 60%, #142b28);
+  overflow: hidden;
+}
+
+.tea-stage-top {
+  position: absolute;
+  top:  16px;
+  left:  16px;
+  right:  16px;
+  z-index:2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:  10px;
+  color: #fff;
+}
+
+.tea-stage-caption {
+  padding:6px 12px;
+  border-radius:  999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size:  11.5px;
+  font-weight:  700;
+  backdrop-filter: blur(4px);
+}
+
+.tea-stage-extras {
+  padding:6px 12px;
+  border-radius:  999px;
+  color:#2c5653;
+  background:#f4d39b;
+  font-size:11px;
+  font-weight:800;
+}
+
+.tea-stage-hint {
+  position: absolute;
+  bottom:14px;
+  left:50%;
+  z-index:2;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.65);
+  font-size:  11px;
+  letter-spacing:0.4px;
+}
+
+/* ---------- RIGHT: wizard panel ---------- */
+.tea-panel {
+  display: flex;
+  flex-direction: column;
+  min-width:0;
+  min-height:0;
+  overflow: hidden;
+  padding:26px 26px 0;
+}
+
+.tea-panel h2 {
+  margin:0 0 6px;
+  padding-right:40px;
+  font-size:  23px;
+}
+
+.tea-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap:14px;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid #e7d9c6;
+}
+
+.tea-progress-label {
+  color:#6a7f7b;
+  font-size:11.5px;
+  font-weight:800;
+  letter-spacing:0.5px;
+  text-transform: uppercase;
+}
+
+.tea-dots {
+  display: flex;
+  gap:6px;
+}
+
+.tea-dot {
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#dccdb8;
+  transition: background 0.2s ease;
+}
+
+.tea-dot.active {
+  background:#285451;
+}
+
+.tea-body {
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  padding-right:6px;
+  scrollbar-width:thin;
+}
+
+.tea-body::-webkit-scrollbar {
+  width:8px;
+}
+
+.tea-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tea-body::-webkit-scrollbar-thumb {
+  border-radius:8px;
+  background:#dccdb8;
+}
+
+.tea-body::-webkit-scrollbar-thumb:hover {
+  background:#b99f7e;
+}
+
+.tea-step-title {
+  margin:0 0 4px;
+  font-size:16px;
+}
+
+.tea-step-subtitle {
+  margin:0 0 14px;
+  color:#6a7f7b;
+  font-size:12px;
+}
+
+.tea-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:10px;
+}
+
+.tea-option-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:5px;
+  padding:10px 8px 9px;
+  border:1.5px solid #dccdb8;
+  border-radius:12px;
+  color:#365755;
+  background:#fffdf9;
+  text-align:center;
+  cursor:pointer;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.tea-option-card:hover {
+  transform: translateY(-2px);
+  box-shadow:0 6px 14px rgba(72, 49, 24, 0.12);
+}
+
+.tea-option-card.selected {
+  border-color:#285451;
+  background:#eef6f3;
+  box-shadow:0 0 0 1px #285451 inset;
+}
+
+.tea-option-card img {
+  width:64px;
+  height:64px;
+  object-fit:contain;
+}
+
+.tea-option-name {
+  font-size:11.5px;
+  font-weight:700;
+  line-height:1.25;
+}
+
+.tea-option-price {
+  color:#b36538;
+  font-size:11px;
+  font-weight:800;
+}
+
+.tea-option-check {
+  position: absolute;
+  top:7px;
+  right:7px;
+  width:18px;
+  height:18px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#fff;
+  background:#285451;
+  font-size:11px;
+}
+/* Pills (cup size / sugar level - no images) */
+.tea-pills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:10px;
+}
+
+.tea-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:7px;
+  min-height:56px;
+  padding:12px 12px;
+  border:1.5px solid #dccdb8;
+  border-radius:12px;
+  text-align:center;
+  color:#365755;
+  background:#fffdf9;
+  font-size:12.5px;
+  font-weight:700;
+  cursor:pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.tea-pill:hover {
+  border-color:#285451;
+}
+
+.tea-pill.selected {
+  border-color:#285451;
+  color:#fff;
+  background:#285451;
+}
+
+.tea-pill em {
+  color:#b36538;
+  font-style:normal;
+  font-size:11px;
+}
+
+.tea-pill.selected em {
+  color:#f4d39b;
+}
+
+/* Summary step */
+.tea-summary {
+  padding-bottom:8px;
+}
+
+.tea-summary-group {
+  margin-bottom:12px;
+  padding:12px 14px;
+  border:1px solid #e7d9c6;
+  border-radius:10px;
+  background:#fffdf9;
+}
+
+.tea-summary-group h4 {
+  margin:0 0 6px;
+  color:#285451;
+  font-size:10.5px;
+  font-weight:800;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+}
+
+.tea-summary-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:3px 0;
+  color:#54706c;
+  font-size:12.5px;
+}
+
+.tea-summary-row span:last-child {
+  color:#234947;
+  font-weight:800;
+}
+
+/* Footer */
+.tea-footer {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:14px;
+  padding:14px 0 18px;
+  border-top:1px solid #e7d9c6;
+}
+
+.tea-footer button {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  min-width:132px;
+  border:0;
+  border-radius:9px;
+  font-size:12.5px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.tea-back {
+  padding:12px 24px;
+  color:#285451;
+  background:#e4e9e6;
+}
+
+.tea-back:disabled {
+  opacity:0.45;
+  cursor:not-allowed;
+}
+
+.tea-next,
+.tea-add {
+  padding:12px 24px;
+  color:#fff;
+  background:#285451;
+}
+
+.tea-next:hover,
+.tea-add:hover {
+  background:#183b39;
+}
+
+.tea-total {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin:0 auto;
+  text-align:center;
+  color:#6a7f7b;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.4px;
+}
+
+.tea-total strong {
+  color:#234947;
+  font-size:19px;
+  letter-spacing:0;
+}
+
+/* Responsive */
+@media (max-width:900px) {
+  .tea-modal {
+    grid-template-columns:1fr;
+    height:auto;
+    max-height:94vh;
+    overflow-y:auto;
+  }
+
+  .tea-stage {
+    min-height:300px;
+  }
+
+  .tea-panel {
+    padding:20px 18px 0;
+  }
+
+  .tea-panel h2 {
+    font-size:20px;
+  }
+
+  .tea-options-grid,
+  .tea-pills {
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+  }
+
+  .tea-footer {
+    flex-wrap:wrap;
+  }
+}
+
+/* guest's custom drink name, shown above the summary */
+.tea-name-field {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid #e7d9c6;
+  border-radius: 10px;
+  background: #fffdf9;
+}
+
+.tea-name-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #234947;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tea-name-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d9c8b2;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #2f3b38;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tea-name-field input:focus {
+  outline: none;
+  border-color: #3e8a7c;
+  box-shadow: 0 0 0 3px rgba(62, 138, 124, 0.15);
+}
+
+.tea-name-field input::placeholder {
+  color: #b0a899;
+  font-weight: 500;
+}

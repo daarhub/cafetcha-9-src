@@ -1,0 +1,853 @@
+.guest-menu-page {
+  min-height: 100vh;
+  background: #f8f1e9;
+  color: #234947;
+}
+
+.guest-menu-hero {
+  min-height: 315px;
+  padding: 126px 6% 44px;
+  color: #fff;
+  background: linear-gradient(135deg, #1b4a48, #2e6460);
+}
+
+.guest-menu-crumb {
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.guest-menu-hero h1 {
+  margin: 0;
+  font-size: clamp(29px, 4vw, 45px);
+}
+
+.guest-menu-hero > p:not(.guest-menu-crumb) {
+  max-width: 390px;
+  margin: 6px 0 25px;
+  font-size: 13px;
+}
+
+.menu-search {
+  width: min(510px, 100%);
+  height: 42px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.menu-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  background: transparent;
+  font-size: 13px;
+}
+
+.menu-search input::placeholder {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* Full-width desktop/laptop layout is now the default */
+.guest-menu-layout {
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  align-items: start;
+}
+
+.menu-sidebar {
+  overscroll-behavior: contain;
+  position: sticky;
+  top: 88px;
+  align-self: start;
+  max-height: calc(100vh - 88px);
+  overflow-y: auto;
+  padding: 34px 30px 42px;
+  background: #fbf5ee;
+  border-right: 1px solid #decfbd;
+  scrollbar-width: none;
+}
+
+.menu-sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.sort-box {
+  padding: 17px 16px;
+  border-radius: 10px;
+  background: #285451;
+  color: #fff;
+}
+
+.sort-box button,
+.category-box > .category-group > button {
+  width: 100%;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  text-align: left;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.sort-box button {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.sort-box button:hover,
+.sort-box button.selected {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.17);
+  font-weight: 800;
+}
+
+.category-box {
+  padding: 23px 0;
+  border-bottom: 1px solid #d8cabb;
+}
+
+.category-box .sidebar-label,
+.guest-cart .sidebar-label {
+  justify-content: center;
+  color: #285451;
+}
+
+.category-box > .category-group > button {
+  color: #365755;
+}
+
+.category-box > .category-group > button:hover,
+.category-box > .category-group > button.selected {
+  background: #c7ceca;
+  font-weight: 800;
+}
+
+.category-children {
+  margin: 2px 0 5px 14px;
+  padding-left: 10px;
+  border-left: 2px solid #d6b77f;
+}
+
+.category-children button {
+  width: 100%;
+  padding: 5px 0;
+  border: 0;
+  color: #5a7470;
+  background: transparent;
+  text-align: left;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.category-children button:hover {
+  color: #1f4946;
+  font-weight: 800;
+}
+
+.guest-cart {
+  padding-top: 24px;
+}
+
+.empty-cart {
+  margin: 18px 0;
+  color: #697b79;
+  text-align: center;
+  font-size: 11px;
+}
+
+.cart-total {
+  margin: 16px 0 12px;
+  padding-top: 12px;
+  border-top: 1px solid #d8cabb;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.guest-cart > button {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 7px;
+  color: #fff;
+  background: #285451;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.menu-content-area {
+  min-width: 0;
+  padding: 34px 38px 58px;
+}
+
+.product-section {
+  scroll-margin-top: 108px;
+}
+
+.product-section + .product-section {
+  margin-top: 40px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.section-heading span {
+  color: #6a7f7b;
+  font-size: 11px;
+}
+
+/* Larger desktop/laptop product cards */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  position: relative;
+  min-height: 335px;
+  padding: 18px 17px;
+  overflow: hidden;
+  border: 1px solid #d7b996;
+  border-radius: 11px;
+  color: #244947;
+  background: #fffaf4;
+  text-align: left;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(72, 49, 24, 0.12);
+}
+
+.product-card > img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  transform: scale(1.9);
+  /* The enlarged artwork must never intercept clicks — this keeps the
+     add/customize buttons and neighboring cards clickable. */
+  pointer-events: none;
+}
+
+.product-card h3 {
+  margin: 11px 0 3px;
+  font-size: 18px;
+}
+
+.product-card p {
+  min-height: 52px;
+  margin: 0 0 12px;
+  color: #55716d;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.product-card strong {
+  color: #234947;
+  font-size: 16px;
+}
+
+/* Price row: bottom-left of every product card. Promos may render a
+   "Save ₱xx!" pill and a crossed-out original price beside the price —
+   align-items: center lines the pill, its background, and the
+   line-through price up vertically with the current price.
+   right: 74px keeps the row clear of the round add button. */
+.product-card:not(.customize-card) .price-row {
+  position: absolute;
+  left: 20px;
+  right: 74px;
+  bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px 6px;
+}
+
+.product-card:not(.customize-card) .price-row strong {
+  font-size: 18px;
+}
+
+.price-save {
+  padding: 3px 8px;
+  border-radius: 12px;
+  color: #285451;
+  background: #f4d39b;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.price-original {
+  font-size: 13px;
+  text-decoration: line-through;
+}
+
+.promos-section .price-original {
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.add-button {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: #285451;
+  cursor: pointer;
+}
+
+.add-button:hover,
+.guest-cart > button:hover,
+.modal-action:hover {
+  background: #183b39;
+}
+
+.promos-section .product-card {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(145deg, #315f5a, #1e4140);
+}
+
+.promos-section .product-card p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.promos-section .product-card strong {
+  color: #f4d39b;
+}
+
+.promos-section .add-button {
+  color: #285451;
+  background: #f4d39b;
+}
+
+/* Static "Promo ends in 30 days" timer label on every promo card.
+   Purely decorative — there is no countdown logic and the card is never
+   removed automatically. */
+.promo-timer {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  color: #285451;
+  background: #f4d39b;
+  font-size: 9.5px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Sidebar cart: the customer's ordered items, listed right in the menu
+   page (count + each line's thumbnail, name, quantity and price). No scroll
+   bars — lines simply stack, and long names get "..." instead of wrapping
+   or overflowing horizontally. */
+.sidebar-cart-list {
+  display: grid;
+  gap: 9px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-cart-list li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  animation: sidebar-cart-in 0.25s ease both;
+}
+
+/* Same transparent-canvas fix as the cart page: the wrapper clips to a
+   fixed square and the img zooms in, so the product — not the empty
+   transparent space around it — is what grows. */
+.sidebar-cart-thumb {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  overflow: hidden;
+  align-self: center;
+  padding: 6px;
+  border: 1px solid #f0e2cc;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.sidebar-cart-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+}
+
+@keyframes sidebar-cart-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar-cart-name {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sidebar-cart-qty {
+  flex-shrink: 0;
+  color: #95866f;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.sidebar-cart-price {
+  flex-shrink: 0;
+  font-size: 11.5px;
+  font-weight: 800;
+}
+
+/* New Arrival styling — applied to every arrival card, both inside the
+   "New Arrival" section and the additional arrival cards shown in the
+   Coffee, Frappe, Appetizer, and Pastries sections. */
+.arrival-section .product-card,
+.product-card.arrival-card {
+  border: 1px solid #d9ad72;
+  background: linear-gradient(180deg, #fff7e9, #f2ddba);
+}
+
+.arrival-section .product-card::before,
+.product-card.arrival-card::before {
+  content: "New";
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 8px;
+  border-radius: 12px;
+  color: #fff;
+  background: #b36538;
+  font-size: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* ---------- You Might Like (personalized reorder + suggested cards) ----------
+   Reorder cards keep the customer's exact past options pre-saved; suggested
+   cards are keyword/category-driven picks. Every card wears the exact color
+   of the section its product belongs to — promo products the dark-teal promo
+   look, new arrivals the gold arrival look, everything else the standard
+   white card. The Reorder / Suggested for you badge is the only difference. */
+
+/* Promo-look cards (reorder + suggested) — the same colors as the Promos
+   section, applied per card so they also work inside You Might Like. */
+.product-card.promo-card {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(145deg, #315f5a, #1e4140);
+}
+
+.product-card.promo-card p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.product-card.promo-card strong {
+  color: #f4d39b;
+}
+
+.product-card.promo-card .add-button {
+  color: #285451;
+  background: #f4d39b;
+}
+
+/* Arrival-styled You Might Like cards would otherwise draw the decorative
+   "New" pseudo-badge on top of the Reorder / Suggested badge — hide it. */
+.youmightlike-section .product-card.arrival-card::before {
+  content: none;
+}
+
+/* Badge pinned to the top-left of each personalized card */
+.yml-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.yml-badge.reorder {
+  color: #fff;
+  background: #285451;
+}
+
+.yml-badge.suggested {
+  color: #7a4a12;
+  background: #f4d39b;
+}
+
+/* Trash icon pinned to the top-right of a reorder card */
+.yml-delete {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  color: #b3261e;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.yml-delete:hover {
+  background: #fff;
+  transform: scale(1.06);
+}
+
+.youmightlike-card.has-loyalty-stamp .yml-delete {
+  right: 50px;
+}
+
+/* Confirm-remove modal actions ("You Might Like") */
+.yml-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-action.yml-cancel {
+  color: #54706c;
+  background: transparent;
+  border: 1.5px solid #d7b996;
+}
+
+.modal-action.yml-cancel:hover {
+  background: #f6efe3;
+}
+
+.modal-action.yml-remove {
+  background: #b3261e;
+}
+
+.modal-action.yml-remove:hover {
+  background: #8c1d17;
+}
+
+.customize-card {
+  border: 0;
+  color: #fff;
+  background: linear-gradient(150deg, #5e2d17, #966036 48%, #4d2414);
+}
+
+.customize-card > img {
+  opacity: 0.78;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.3));
+}
+
+.customize-card p {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+.customize-button {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 7px;
+  color: #573016;
+  background: #f5dcae;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.customize-button:hover {
+  background: #fff1d4;
+}
+
+.no-results {
+  padding: 70px 0;
+  text-align: center;
+  color: #57716d;
+}
+
+/* The 3D customizer chunk loads while this is shown */
+.frappe-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 30, 29, 0.72);
+}
+
+.frappe-loading-card {
+  padding: 22px 30px;
+  border-radius: 14px;
+  color: #234947;
+  background: #fffaf4;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.guest-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 30, 29, 0.68);
+}
+
+.guest-modal {
+  position: relative;
+  width: min(390px, 100%);
+  padding: 34px;
+  border-radius: 14px;
+  color: #234947;
+  background: #fffaf4;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.guest-modal h2 {
+  margin: 0 0 10px;
+}
+
+.guest-modal p {
+  margin: 0 0 22px;
+  color: #54706c;
+  line-height: 1.5;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: 0;
+  background: transparent;
+  color: #315654;
+  cursor: pointer;
+}
+
+.modal-action {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 7px;
+  color: #fff;
+  background: #285451;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* "All Items" category group dividers */
+.category-title-section .section-heading {
+  border-bottom: 2px solid #285451;
+  padding-bottom: 10px;
+}
+
+/* Responsive: tablet */
+@media (max-width: 850px) {
+  .guest-menu-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-sidebar {
+    position: static;
+    max-height: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    border-right: 0;
+    border-bottom: 1px solid #decfbd;
+  }
+
+  .sort-box {
+    grid-row: span 2;
+  }
+
+  .category-box {
+    padding: 0;
+    border: 0;
+  }
+
+  .guest-cart {
+    padding: 0;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Responsive: mobile */
+@media (max-width: 560px) {
+  .guest-menu-hero {
+    padding: 105px 20px 30px;
+  }
+
+  .menu-sidebar {
+    display: block;
+    padding: 25px 20px;
+  }
+
+  .category-box {
+    padding: 18px 0;
+    border-bottom: 1px solid #d8cabb;
+  }
+
+  .guest-cart {
+    padding-top: 20px;
+  }
+
+  .menu-content-area {
+    padding: 28px 18px 42px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-card {
+    min-height: 315px;
+  }
+}
+
+/* Active loyalty-card marker on coffee menu cards. */
+.menu-loyalty-stamp {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  border: 2px dashed #d2b278;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 3px 8px rgba(35, 73, 71, 0.18);
+}
+
+.menu-loyalty-stamp img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+/* Staff can keep unavailable menu cards visible while preventing ordering. */
+.menu-item-unavailable {
+  background: #f1eee9;
+  border-color: #cfc4b5;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.menu-item-unavailable:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.menu-item-unavailable > img {
+  filter: grayscale(1);
+  opacity: 0.45;
+}
+
+.menu-item-unavailable .add-button,
+.menu-item-unavailable .customize-button {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.menu-unavailable-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  padding: 5px 10px;
+  border: 1px solid #d6a09a;
+  border-radius: 999px;
+  color: #8c1d17;
+  background: rgba(255, 240, 239, 0.96);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+

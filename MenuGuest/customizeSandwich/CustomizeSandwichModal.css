@@ -1,0 +1,517 @@
+/* =====================================================================
+   CUSTOMIZE SANDWICH — styles
+   Identical layout & palette to the frappe / tea customizer modals;
+   every class uses the "sw-" prefix.
+   ===================================================================== */
+
+.sw-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(9, 30, 29, 0.72);
+  animation: sw-fade 0.18s ease;
+}
+
+@keyframes sw-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.sw-modal {
+  position: relative;
+  width: min(1180px, 100%);
+  height: min(660px, 92vh);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+  border-radius: 16px;
+  color: #234947;
+  background: #fffaf4;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+  animation: sw-pop 0.22s ease;
+}
+
+@keyframes sw-pop {
+  from {
+    opacity: 0.6;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sw-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #315654;
+  background: rgba(255, 250, 244, 0.94);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.14);
+}
+
+.sw-modal-close:hover {
+  background: #fff;
+}
+
+/* ---------- LEFT: 3D stage ---------- */
+.sw-stage {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  background: linear-gradient(165deg, #2c5653, #173230 60%, #142b28);
+  overflow: hidden;
+}
+
+.sw-stage-top {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  color: #fff;
+}
+
+.sw-stage-caption {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 11.5px;
+  font-weight: 700;
+  backdrop-filter: blur(4px);
+}
+
+.sw-stage-extras {
+  padding: 6px 12px;
+  border-radius: 999px;
+  color: #2c5653;
+  background: #f4d39b;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.sw-stage-hint {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  z-index: 2;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+
+/* ---------- RIGHT: wizard panel ---------- */
+.sw-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 26px 26px 0;
+}
+
+.sw-panel h2 {
+  margin: 0 0 6px;
+  padding-right: 40px;
+  font-size: 23px;
+}
+
+.sw-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e7d9c6;
+}
+
+.sw-progress-label {
+  color: #6a7f7b;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.sw-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.sw-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #dccdb8;
+  transition: background 0.2s ease;
+}
+
+.sw-dot.active {
+  background: #285451;
+}
+
+.sw-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+}
+
+.sw-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sw-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sw-body::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: #dccdb8;
+}
+
+.sw-body::-webkit-scrollbar-thumb:hover {
+  background: #b99f7e;
+}
+
+.sw-step-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.sw-step-subtitle {
+  margin: 0 0 14px;
+  color: #6a7f7b;
+  font-size: 12px;
+}
+
+.sw-options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sw-option-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 8px 9px;
+  border: 1.5px solid #dccdb8;
+  border-radius: 12px;
+  color: #365755;
+  background: #fffdf9;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.sw-option-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(72, 49, 24, 0.12);
+}
+
+.sw-option-card.selected {
+  border-color: #285451;
+  background: #eef6f3;
+  box-shadow: 0 0 0 1px #285451 inset;
+}
+
+.sw-option-card img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.sw-option-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.sw-option-price {
+  color: #b36538;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.sw-option-check {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #285451;
+  font-size: 11px;
+}
+
+/* Pills (steps without images — kept for parity with frappe/tea) */
+.sw-pills {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.sw-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 56px;
+  padding: 12px 12px;
+  border: 1.5px solid #dccdb8;
+  border-radius: 12px;
+  text-align: center;
+  color: #365755;
+  background: #fffdf9;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease;
+}
+
+.sw-pill:hover {
+  border-color: #285451;
+}
+
+.sw-pill.selected {
+  border-color: #285451;
+  color: #fff;
+  background: #285451;
+}
+
+.sw-pill em {
+  color: #b36538;
+  font-style: normal;
+  font-size: 11px;
+}
+
+.sw-pill.selected em {
+  color: #f4d39b;
+}
+
+/* Summary step */
+.sw-summary {
+  padding-bottom: 8px;
+}
+
+.sw-summary-group {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border: 1px solid #e7d9c6;
+  border-radius: 10px;
+  background: #fffdf9;
+}
+
+.sw-summary-group h4 {
+  margin: 0 0 6px;
+  color: #285451;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.sw-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 0;
+  color: #54706c;
+  font-size: 12.5px;
+}
+
+.sw-summary-row span:last-child {
+  color: #234947;
+  font-weight: 800;
+}
+
+/* Footer */
+.sw-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 14px;
+  padding: 14px 0 18px;
+  border-top: 1px solid #e7d9c6;
+}
+
+.sw-footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 132px;
+  border: 0;
+  border-radius: 9px;
+  font-size: 12.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.sw-back {
+  padding: 12px 24px;
+  color: #285451;
+  background: #e4e9e6;
+}
+
+.sw-back:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sw-next,
+.sw-add {
+  padding: 12px 24px;
+  color: #fff;
+  background: #285451;
+}
+
+.sw-next:hover,
+.sw-add:hover:not(:disabled) {
+  background: #183b39;
+}
+
+/* Add stays put until at least one customized option is picked. */
+.sw-add:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.sw-required-note {
+  margin: 0 0 10px;
+  padding: 9px 12px;
+  border: 1px solid rgba(179, 38, 30, 0.3);
+  border-radius: 9px;
+  color: #b3261e;
+  background: rgba(179, 38, 30, 0.06);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sw-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+  color: #6a7f7b;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.sw-total strong {
+  color: #234947;
+  font-size: 19px;
+  letter-spacing: 0;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .sw-modal {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: 94vh;
+    overflow-y: auto;
+  }
+
+  .sw-stage {
+    min-height: 300px;
+  }
+
+  .sw-panel {
+    padding: 20px 18px 0;
+  }
+
+  .sw-panel h2 {
+    font-size: 20px;
+  }
+
+  .sw-options-grid,
+  .sw-pills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sw-footer {
+    flex-wrap: wrap;
+  }
+}
+
+/* guest's custom sandwich name, shown above the summary */
+.sw-name-field {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border: 1px solid #e7d9c6;
+  border-radius: 10px;
+  background: #fffdf9;
+}
+
+.sw-name-field label {
+  display: block;
+  margin-bottom: 8px;
+  color: #234947;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sw-name-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d9c8b2;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #2f3b38;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sw-name-field input:focus {
+  outline: none;
+  border-color: #3e8a7c;
+  box-shadow: 0 0 0 3px rgba(62, 138, 124, 0.15);
+}
+
+.sw-name-field input::placeholder {
+  color: #b0a899;
+  font-weight: 500;
+}
+

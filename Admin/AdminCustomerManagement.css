@@ -1,0 +1,64 @@
+@import "./AdminShared.css";
+
+.admin-customer-management-page .admin-customer-list article {
+  grid-template-columns: 92px minmax(0, 1fr) auto auto;
+  min-height: 170px;
+  padding: 24px;
+}
+
+.admin-customer-management-page .admin-customer-avatar {
+  width: 92px;
+  height: 92px;
+  font-size: 25px;
+}
+
+.admin-customer-management-page .admin-customer-main strong {
+  font-size: 17px;
+}
+
+.admin-customer-management-page .admin-customer-stats b {
+  font-size: 20px;
+}
+
+.admin-customer-management-page .admin-customer-card-control {
+  gap: 16px;
+}
+
+.admin-customer-management-page .admin-customer-card-control .admin-status-pill {
+  font-size: 14px;
+  padding: 10px 16px;
+}
+
+.admin-customer-management-page .admin-customer-toggle {
+  width: 40px;
+  height: 40px;
+}
+
+.loyalty-stamp-button {
+  position: relative;
+  color: #8a5a16 !important;
+  background: #fff1d4 !important;
+}
+.loyalty-stamp-button small {
+  position: absolute;
+  right: -5px;
+  bottom: -5px;
+  padding: 2px 4px;
+  border-radius: 999px;
+  color: #fff;
+  background: #573016;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+@media (max-width: 700px) {
+  .admin-customer-management-page .admin-customer-list article {
+    grid-template-columns: 72px minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .admin-customer-management-page .admin-customer-card-control {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+}

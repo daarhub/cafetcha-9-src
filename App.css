@@ -1,0 +1,32 @@
+.about-area {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #173a38;
+}
+
+.about-area-bg {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center top;
+
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.about-area-content {
+  position: relative;
+
+  z-index: 2;
+}

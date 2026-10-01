@@ -1,0 +1,250 @@
+@import "./AdminShared.css";
+
+.admin-review-list {
+  display: grid;
+  gap: 14px;
+}
+.admin-review-filters select {
+  min-width: 145px;
+}
+.admin-review-section {
+  display: grid;
+  gap: 12px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 2px solid #e3d3b8;
+}
+.admin-review-section:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 0;
+}
+.admin-review-section > h2,
+.admin-review-section > p {
+  margin: 0;
+}
+.admin-review-section > h2 {
+  color: #573016;
+  font-size: 18px;
+}
+.admin-review-section > p {
+  color: #9b8168;
+  font-size: 12px;
+}
+.admin-product-review-section > header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.admin-product-review-image {
+  width: 86px;
+  height: 86px;
+  flex: 0 0 86px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f6efe3;
+}
+
+.admin-product-review-image img {
+  width: 200%;
+  height: 200%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  transform: translateY(-5px);
+}
+
+.admin-product-review-section > header h2 {
+  font-size: 17px;
+}
+.admin-review-card {
+  position: relative;
+}
+.admin-review-card.is-new {
+  border-left: 4px solid #b36538;
+}
+
+.admin-review-card {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid #eadcc8;
+  border-radius: 14px;
+  background: #fff;
+}
+.admin-review-card > header,
+.admin-review-card > footer,
+.admin-review-card > footer > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.admin-review-card > header > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* Name + review type stay on one line; the Read/Unread label and the 5/5
+   rating sit together in the card's right-hand action row. */
+.admin-review-card-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.admin-review-card-title strong {
+  white-space: nowrap;
+}
+.admin-review-head-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.admin-review-card strong {
+  color: #573016;
+  font-size: 16px;
+}
+.admin-review-card header span {
+  color: #8a6548;
+  font-size: 12px;
+  font-weight: 700;
+}
+.admin-review-rating {
+  padding: 5px 9px;
+  border-radius: 999px;
+  color: #8a5a16;
+  background: #fff1d4;
+  font-weight: 800;
+}
+.admin-review-stars {
+  display: flex;
+  gap: 3px;
+  color: #c58a31;
+}
+.admin-review-card > p {
+  margin: 0;
+  color: #6f5139;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.admin-review-reply {
+  padding: 11px 13px;
+  border-left: 3px solid #2e8b57;
+  border-radius: 8px;
+  background: #f1f8f3;
+}
+.admin-review-reply strong {
+  color: #2e8b57;
+  font-size: 12px;
+  font-weight: 800;
+}
+.admin-review-reply p {
+  margin: 4px 0 0;
+  color: #54706c;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.admin-review-card footer time {
+  color: #95866f;
+  font-size: 11px;
+}
+.admin-review-card footer > div {
+  justify-content: flex-end;
+  gap: 8px;
+}
+.admin-review-card footer button,
+.admin-review-reply-editor button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 11px;
+  border: 1px solid #d7b996;
+  border-radius: 8px;
+  color: #285451;
+  background: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.admin-review-card footer button.danger {
+  color: #b3261e;
+}
+.admin-review-reply-editor {
+  display: grid;
+  gap: 9px;
+  padding-top: 10px;
+  border-top: 1px solid #eadcc8;
+}
+.admin-review-reply-editor textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #d7b996;
+  border-radius: 8px;
+  resize: vertical;
+}
+.admin-review-reply-editor > div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+@media (max-width: 700px) {
+  .admin-review-card > footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .admin-review-card > footer > div {
+    justify-content: flex-start;
+  }
+}
+
+.admin-review-head-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.admin-review-read-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.admin-review-read-label.read {
+  color: #2e7d4f;
+  background: #e7f5ed;
+}
+.admin-review-read-label.unread {
+  color: #9d2a20;
+  background: #fff0ef;
+}
+.admin-review-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.admin-review-unread-count {
+  color: #8a6548;
+  font-size: 12px;
+  font-weight: 800;
+}
+.admin-review-header-actions button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+@media (max-width: 700px) {
+  .admin-review-head-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
